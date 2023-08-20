@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "592953613060",
+    "project_id": "eventec-e6ef2",
+    "storage_bucket": "eventec-e6ef2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592953613060:android:46a1c40d4ed608f283ce51",
+        "android_client_info": {
+          "package_name": "com.example.eventec"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592953613060-o2ei9qa59rfc8012m2ehc6uknuo69460.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0XkIaRiopiJ01lSLb4Mo-SWebrqUQTzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592953613060-o2ei9qa59rfc8012m2ehc6uknuo69460.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
