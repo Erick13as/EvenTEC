@@ -7,6 +7,22 @@
     tools:context=".VerEstadisticas"
     android:background="@drawable/backgroundmain">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_EnviarPropuesta2"
+        android:layout_width="166dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="620dp"
+        android:background="@drawable/round_button_background"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-medium"
+        android:text="Ver estadísticas"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="114dp"
@@ -21,9 +37,11 @@
         android:id="@+id/imageView9"
         android:layout_width="355dp"
         android:layout_height="66dp"
-        app:srcCompat="@android:drawable/screen_background_light"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="316dp" />
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="238dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_EnviarPropuesta2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/screen_background_light" />
 
     <Spinner
         android:id="@+id/spinnerEventosEstadisticas"
