@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_propuestas"
+        android:id="@+id/btn_FormularioPropuestas"
         android:layout_width="185dp"
         android:layout_height="60dp"
         android:layout_marginStart="112dp"

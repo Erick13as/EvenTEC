@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerEstadisticas"
+    android:background="@drawable/backgroundmain">
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="114dp"
+        android:layout_height="91dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="612dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="355dp"
+        android:layout_height="66dp"
+        app:srcCompat="@android:drawable/screen_background_light"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="316dp" />
+
+    <Spinner
+        android:id="@+id/spinnerEventosEstadisticas"
+        android:layout_width="351dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="316dp"
+        android:entries="@array/opciones_array"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/texto7"
+        android:layout_width="393dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="37dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Seleccionar evento:"
+        android:textAlignment="center"
+        android:textColor="#F6F6F6"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.354" />
+
+    <TextView
+        android:id="@+id/texto5"
+        android:layout_width="336dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="37dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Ver estadísticas"
+        android:textAlignment="center"
+        android:textColor="#F6F6F6"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.219" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

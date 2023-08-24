@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">EvenTEC</string>
+    <string-array name="opciones_array">
+        <item>Convivio</item>
+        <item>Charla</item>
+    </string-array>
 </resources>

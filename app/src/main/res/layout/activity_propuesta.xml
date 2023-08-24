@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Propuesta"
+    android:background="@drawable/backgroundmain">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="371dp"
+        android:layout_height="376dp"
+        app:srcCompat="@android:drawable/screen_background_light"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="204dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="114dp"
+        android:layout_height="91dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="612dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_EnviarPropuesta"
+        android:layout_width="139dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="620dp"
+        android:background="@drawable/round_button_background"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-medium"
+        android:text="Enviar"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/texto3"
+        android:layout_width="336dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="37dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Nueva propuesta"
+        android:textAlignment="center"
+        android:textColor="#F6F6F6"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.205" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idTematica"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="39dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Temática"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idObjetivo"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="39dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Objetivo"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idActividades"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="364dp"
+        android:layout_marginEnd="39dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Actividades a realizar"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idFechaPropuesta"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="432dp"
+        android:layout_marginEnd="39dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Fecha sugerida"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idCantidadPropuesta"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="39dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Cantidad de participantes"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
