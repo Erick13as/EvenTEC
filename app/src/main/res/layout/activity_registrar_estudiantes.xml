@@ -8,7 +8,7 @@
     android:background="@drawable/backgroundmain">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_EnviarPropuesta4"
+        android:id="@+id/btn_CrearCuenta"
         android:layout_width="122dp"
         android:layout_height="32dp"
         android:layout_marginStart="128dp"
@@ -27,12 +27,14 @@
         android:id="@+id/imageView12"
         android:layout_width="357dp"
         android:layout_height="551dp"
-        app:srcCompat="@android:drawable/screen_background_light"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="138dp" />
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_CrearCuenta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/screen_background_light" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idDiaEstadisticas2"
+        android:id="@+id/idNombreEstudiante"
         android:layout_width="334dp"
         android:layout_height="52dp"
         android:layout_marginStart="38dp"
@@ -47,7 +49,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idDiaEstadisticas3"
+        android:id="@+id/idPrimerApellidoEstudiante"
         android:layout_width="334dp"
         android:layout_height="52dp"
         android:layout_marginStart="38dp"
@@ -62,7 +64,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idDiaEstadisticas4"
+        android:id="@+id/idSegundoApellidoEstudiante"
         android:layout_width="334dp"
         android:layout_height="52dp"
         android:layout_marginStart="38dp"
@@ -77,7 +79,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idDiaEstadisticas5"
+        android:id="@+id/idCarnetEstudiante"
         android:layout_width="334dp"
         android:layout_height="52dp"
         android:layout_marginStart="38dp"
@@ -92,7 +94,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idDiaEstadisticas6"
+        android:id="@+id/idCorreoEstudiante"
         android:layout_width="334dp"
         android:layout_height="52dp"
         android:layout_marginStart="38dp"
@@ -107,7 +109,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idDiaEstadisticas7"
+        android:id="@+id/idCarreraEstudiante"
         android:layout_width="334dp"
         android:layout_height="52dp"
         android:layout_marginStart="38dp"
@@ -122,7 +124,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idDiaEstadisticas8"
+        android:id="@+id/idSedeEstudiante"
         android:layout_width="334dp"
         android:layout_height="52dp"
         android:layout_marginStart="38dp"
@@ -137,7 +139,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/idDiaEstadisticas9"
+        android:id="@+id/idDescripcionEstudiante"
         android:layout_width="334dp"
         android:layout_height="52dp"
         android:layout_marginStart="38dp"
