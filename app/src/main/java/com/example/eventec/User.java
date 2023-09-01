@@ -6,28 +6,31 @@ public class User implements Serializable {
     private String apellido;
     private String apellido2;
     private String carnet;
-    private String fechaNac;
-    private String correo;
     private String contraseña;
+    private String correo;
+    private String carrera;
+    private String sede;
+    private String descripcion;
 
     private String idTipo;
 
-    private String idEstado;
 
     public User() {
         // Default constructor required for Firebase
     }
 
-    public User(String nombre, String apellido, String apellido2, String carnet, String fechaNac, String correo, String contraseña, String idTipo, String idEstado) {
+
+    public User(String nombre, String apellido, String apellido2, String carnet, String contraseña, String correo, String carrera, String sede, String descripcion, String idTipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.apellido2 = apellido2;
         this.carnet = carnet;
-        this.fechaNac = fechaNac;
-        this.correo = correo;
         this.contraseña = contraseña;
+        this.correo = correo;
+        this.carrera = carrera;
+        this.sede = sede;
+        this.descripcion = descripcion;
         this.idTipo = idTipo;
-        this.idEstado = idEstado;
     }
 
     public String getNombre() {
@@ -46,24 +49,25 @@ public class User implements Serializable {
         return carnet;
     }
 
-    public String getFechaNac() {
-        return fechaNac;
+    public String getContraseña() {
+        return contraseña;
     }
 
     public String getCorreo() {
         return correo;
     }
-
-    public String getContraseña() {
-        return contraseña;
+    public String getCarrera() {
+        return carrera;
+    }
+    public String getSede() {
+        return sede;
+    }
+    public String getDescripcion() {
+        return descripcion;
     }
 
     public String getIdTipo() {
         return idTipo;
-    }
-
-    public String getIdEstado() {
-        return idEstado;
     }
 }
 

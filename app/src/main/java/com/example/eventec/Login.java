@@ -102,13 +102,15 @@ public class Login extends AppCompatActivity {
                     String apellido = documentSnapshot.getString("apellido");
                     String apellido2 = documentSnapshot.getString("apellido2");
                     String carnet = documentSnapshot.getString("carnet");
-                    String fechaNac = documentSnapshot.getString("fechaNac");
-                    String correo = documentSnapshot.getString("correo");
                     String contraseña = documentSnapshot.getString("contraseña");
-                    String idEstado = documentSnapshot.getString("idEstado");
+                    String correo = documentSnapshot.getString("correo");
+                    String carrera = documentSnapshot.getString("carrera");
+                    String sede = documentSnapshot.getString("sede");
+                    String descripcion = documentSnapshot.getString("descripcion");
+
 
                     // Create User object with retrieved data
-                    User user = new User(nombre, apellido, apellido2, carnet, fechaNac, correo, contraseña, idTipo, idEstado);
+                    User user = new User(nombre, apellido, apellido2, carnet, contraseña,correo,carrera, sede,descripcion, idTipo);
 
                     if (idTipo.equals("Estudiante")) {
                         correoEditText.setError("El usuario existe");
