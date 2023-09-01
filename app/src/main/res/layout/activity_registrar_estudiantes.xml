@@ -10,9 +10,9 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_CrearCuenta"
-        android:layout_width="145dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="148dp"
+        android:layout_width="179dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="672dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"

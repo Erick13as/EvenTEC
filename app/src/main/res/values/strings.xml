@@ -3,6 +3,6 @@
     <string-array name="opciones_array">
         <item>Convivio</item>
         <item>Charla</item>
-        <string name="BotonCrear"> Crear Cuenta</string>
     </string-array>
+    <string name="BotonCrear">Crear Cuenta</string>
 </resources>
