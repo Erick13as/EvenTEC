@@ -5,4 +5,5 @@
         <item>Charla</item>
     </string-array>
     <string name="BotonCrear">Crear Cuenta</string>
+    <string name="choose_time">Elige una hora</string>
 </resources>

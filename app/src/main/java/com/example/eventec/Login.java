@@ -20,6 +20,7 @@ public class Login extends AppCompatActivity {
     private EditText correoEditText;
     private EditText contraseñaEditText;
     private Button ingresarButton;
+    private Button registrarButton;
     private FirebaseFirestore db;
     private List<String> infoEstudiante;
 
@@ -31,10 +32,30 @@ public class Login extends AppCompatActivity {
         correoEditText = findViewById(R.id.editTextEmail);
         contraseñaEditText = findViewById(R.id.editTextPassword);
         ingresarButton = findViewById(R.id.button2);
+        registrarButton = findViewById(R.id.button);
 
         db = FirebaseFirestore.getInstance();
 
 
+
+        ingresarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (validateUsername() && validatePassword()) {
+                    String correo = correoEditText.getText().toString();
+                    String contraseña = contraseñaEditText.getText().toString();
+                    checkUser(correo, contraseña);
+                }
+            }
+        });
+
+        registrarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this, RegistrarEstudiantes.class);
+                startActivity(intent);
+            }
+        });
 
         ingresarButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +139,10 @@ public class Login extends AppCompatActivity {
                         /*Intent intent = new Intent(Login.this, MainEstudiante.class);
                         intent.putExtra("user", user); // Pass the user object
                         startActivity(intent);*/
+                    } else if (idTipo.equals("Admin")) {
+                        Intent intent = new Intent(Login.this, LobbyEstudiantesAdmin.class);
+                        intent.putExtra("user", user); // Pass the user object
+                        startActivity(intent);
                     } else {
                         correoEditText.setError("El usuario no existe");
                         correoEditText.requestFocus();
