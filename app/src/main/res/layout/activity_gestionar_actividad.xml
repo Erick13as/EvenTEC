@@ -1,158 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:fillViewport="true"
     android:background="@drawable/backgroundmain">
 
-    <TextView
-        android:id="@+id/textViewActividad"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Actividad"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editTextFecha"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:focusable="false"
-        android:hint="Fecha"
-        android:onClick="showDatePickerDialog"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewActividad" />
+        <TextView
+            android:id="@+id/textViewActividad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Actividad"
+            android:textColor="#FFFFFF"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewHoraI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="226dp"
-        android:text="Hora de Inicio"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFecha" />
+        <EditText
+            android:id="@+id/editTextFecha"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:hint="Fecha"
+            android:onClick="showDatePickerDialog"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewActividad" />
 
-    <Spinner
-        android:id="@+id/spinnerHoraI"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:prompt="@string/choose_time"
-        android:background="@drawable/spinner_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHoraI" />
+        <TextView
+            android:id="@+id/textViewHoraI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="226dp"
+            android:text="Hora de Inicio"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextFecha" />
 
-    <TextView
-        android:id="@+id/textViewHoraF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="220dp"
-        android:text="Hora de Cierre"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerHoraI" />
+        <Spinner
+            android:id="@+id/spinnerHoraI"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:prompt="@string/choose_time"
+            android:background="@drawable/spinner_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewHoraI" />
 
-    <Spinner
-        android:id="@+id/spinnerHoraF"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:prompt="@string/choose_time"
-        android:background="@drawable/spinner_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHoraF" />
+        <TextView
+            android:id="@+id/textViewHoraF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="220dp"
+            android:text="Hora de Cierre"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerHoraI" />
 
-    <EditText
-        android:id="@+id/editTextCantidad"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="Cantidad"
-        android:inputType="number"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerHoraF" />
+        <Spinner
+            android:id="@+id/spinnerHoraF"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:prompt="@string/choose_time"
+            android:background="@drawable/spinner_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewHoraF" />
 
-    <EditText
-        android:id="@+id/editTextUbicacion"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="Ubicación"
-        android:inputType="text"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCantidad" />
+        <EditText
+            android:id="@+id/editTextCantidad"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="Cantidad"
+            android:inputType="number"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerHoraF" />
 
-    <EditText
-        android:id="@+id/editTextDescripcion"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Descripción"
-        android:inputType="textMultiLine"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUbicacion" />
+        <EditText
+            android:id="@+id/editTextUbicacion"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="Ubicación"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCantidad" />
 
-    <EditText
-        android:id="@+id/editTextRecursos"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Recursos"
-        android:inputType="textMultiLine"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDescripcion" />
+        <EditText
+            android:id="@+id/editTextDescripcion"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Descripción"
+            android:inputType="textMultiLine"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextUbicacion" />
 
-    <Button
-        android:id="@+id/buttonGuardar"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:text="Guardar Cambios"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextRecursos" />
+        <EditText
+            android:id="@+id/editTextRecursos"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Recursos"
+            android:inputType="textMultiLine"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDescripcion" />
 
-    <Button
-        android:id="@+id/buttonEliminar"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:text="Eliminar Actividad"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGuardar" />
+        <Button
+            android:id="@+id/buttonGuardar"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:text="Guardar Cambios"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextRecursos" />
 
+        <Button
+            android:id="@+id/buttonEliminar"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:text="Eliminar Actividad"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonGuardar" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
