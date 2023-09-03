@@ -2,17 +2,13 @@ package com.example.eventec;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class SeleccionarEventos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this, SeleccionarEventos.class);
-        startActivity(intent);
-        finish();
+        setContentView(R.layout.activity_seleccionar_eventos);
     }
-
 }
