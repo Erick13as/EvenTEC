@@ -43,9 +43,11 @@
         android:id="@+id/imageView8"
         android:layout_width="321dp"
         android:layout_height="366dp"
-        app:srcCompat="@android:drawable/screen_background_light"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="224dp" />
+        android:layout_marginBottom="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_EnviarEncuesta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/screen_background_light" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -58,7 +60,7 @@
         app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Pregunta1"
+        android:id="@+id/idPregunta1"
         android:layout_width="304dp"
         android:layout_height="56dp"
         android:layout_marginStart="38dp"
@@ -66,13 +68,13 @@
         android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
         android:hint="¿Que le pareció el evento?"
-        android:inputType="number"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Pregunta2"
+        android:id="@+id/idPregunta2"
         android:layout_width="304dp"
         android:layout_height="56dp"
         android:layout_marginStart="38dp"
@@ -80,13 +82,13 @@
         android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
         android:hint="¿Cuál fue su actividad favorita?"
-        android:inputType="number"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Pregunta3"
+        android:id="@+id/idPregunta3"
         android:layout_width="304dp"
         android:layout_height="56dp"
         android:layout_marginStart="38dp"
@@ -94,13 +96,13 @@
         android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
         android:hint="¿Qué habría hecho diferente?"
-        android:inputType="number"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Pregunta4"
+        android:id="@+id/idPregunta4"
         android:layout_width="304dp"
         android:layout_height="56dp"
         android:layout_marginStart="38dp"
@@ -108,7 +110,7 @@
         android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
         android:hint="¿Le gustaría seguir participando ?"
-        android:inputType="number"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

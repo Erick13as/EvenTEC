@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this, CalendarioEventos.class);
+        Intent intent = new Intent(this, Encuesta.class);
         startActivity(intent);
         finish();
     }
