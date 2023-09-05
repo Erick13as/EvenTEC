@@ -6,4 +6,8 @@
     </string-array>
     <string name="BotonCrear">Crear Cuenta</string>
     <string name="choose_time">Elige una hora</string>
+
+    <string-array name="Vacio_array">
+        <item>Sin eventos</item>
+    </string-array>
 </resources>

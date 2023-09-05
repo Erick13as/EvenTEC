@@ -8,7 +8,7 @@
     android:background="@drawable/backgroundmain">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_EnviarPropuesta2"
+        android:id="@+id/btn_VerEstadisticas"
         android:layout_width="166dp"
         android:layout_height="59dp"
         android:layout_marginStart="124dp"
@@ -39,7 +39,7 @@
         android:layout_height="66dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="238dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_EnviarPropuesta2"
+        app:layout_constraintBottom_toTopOf="@+id/btn_VerEstadisticas"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/screen_background_light" />
 
@@ -49,7 +49,7 @@
         android:layout_height="66dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="316dp"
-        android:entries="@array/opciones_array"
+        android:entries="@array/Vacio_array"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
