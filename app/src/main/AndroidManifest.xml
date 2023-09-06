@@ -12,6 +12,9 @@
         android:theme="@style/Theme.EvenTEC"
         tools:targetApi="31">
         <activity
+            android:name=".Foro"
+            android:exported="false" />
+        <activity
             android:name=".CalendarioEventos"
             android:exported="false" />
         <activity

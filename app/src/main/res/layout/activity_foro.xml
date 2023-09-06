@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Foro">
+
+    <EditText
+        android:id="@+id/questionEditText"
+        android:layout_width="270dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Escribe tu pregunta aquí"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/postButton" />
+
+    <Button
+        android:id="@+id/postButton"
+        android:layout_width="115dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="1dp"
+        android:text="Publicar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ListView
+        android:id="@+id/questionListView"
+        android:layout_width="390dp"
+        android:layout_height="671dp"
+        android:background="#B9DAEA"
+        app:layout_constraintBottom_toTopOf="@+id/postButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
