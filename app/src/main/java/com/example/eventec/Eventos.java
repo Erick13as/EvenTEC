@@ -1,17 +1,22 @@
 package com.example.eventec;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +24,7 @@ public class Eventos extends AppCompatActivity {
 
     private Spinner spinnerEventos;
     private User user;
+    private Evento selectedEvento; // Clase modelo para representar los datos del evento seleccionado
     private static final String TAG = "Eventos"; // Etiqueta de registro
 
     @Override
@@ -65,5 +71,36 @@ public class Eventos extends AppCompatActivity {
                         // Manejar errores si la consulta falla
                     }
                 });
+
+        // Agrega un listener al botón buttonVerEve para obtener y pasar los datos del evento
+        Button buttonVerEve = findViewById(R.id.buttonVerEve);
+        buttonVerEve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Obtiene el evento seleccionado del Spinner
+                String eventoSeleccionado = spinnerEventos.getSelectedItem().toString();
+
+                // Realiza una consulta adicional para obtener los detalles del evento
+                db.collection("evento")
+                        .whereEqualTo("nombre", eventoSeleccionado)
+                        .get()
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                // Suponiendo que solo haya un documento que coincida con el nombre del evento
+                                if (!queryDocumentSnapshots.isEmpty()) {
+                                    DocumentSnapshot document = queryDocumentSnapshots.getDocuments().get(0);
+                                    selectedEvento = document.toObject(Evento.class); // Convierte el documento a una instancia de la clase Evento
+
+                                    // Ahora, puedes pasar los datos del evento y el objeto User a la actividad de Inscripcion
+                                    Intent intent = new Intent(Eventos.this, CancelarInscripcion.class);
+                                    intent.putExtra("eventoSeleccionado", selectedEvento);
+                                    intent.putExtra("user", user); // Agrega el objeto User como extra
+                                    startActivity(intent);
+                                }
+                            }
+                        });
+            }
+        });
     }
 }
