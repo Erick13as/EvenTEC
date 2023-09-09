@@ -12,6 +12,30 @@
         android:theme="@style/Theme.EvenTEC"
         tools:targetApi="31">
         <activity
+            android:name=".GestionarEvento"
+            android:exported="false" />
+        <activity
+            android:name=".EditarColaborador"
+            android:exported="false" />
+        <activity
+            android:name=".BuscarCOlaborador"
+            android:exported="false" />
+        <activity
+            android:name=".AsignarColaborador"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarColaborador"
+            android:exported="false" />
+        <activity
+            android:name=".LobbyColaboradores"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrarAsociaciones"
+            android:exported="false" />
+        <activity
+            android:name=".LobbyAsociaciones"
+            android:exported="false" />
+        <activity
             android:name=".Foro"
             android:exported="false" />
         <activity
