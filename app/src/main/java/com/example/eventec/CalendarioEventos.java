@@ -1,5 +1,6 @@
 package com.example.eventec;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -28,12 +29,15 @@ public class CalendarioEventos extends AppCompatActivity {
     private int selectedDay = -1;
     private int selectedHour = -1;
     private Button lastPressedEventButton = null;
+    private User user;
     private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario_eventos);
+
+        user = (User) getIntent().getSerializableExtra("user");
 
         // Inicializar Firebase Firestore
         db = FirebaseFirestore.getInstance();
@@ -121,10 +125,8 @@ public class CalendarioEventos extends AppCompatActivity {
             // Realiza la consulta en Firestore con los filtros adecuados
             Log.d("CalendarioEventos", "Consulta Firestore: Mes " + selectedMonth + ", Día " + selectedDay + ", Hora " + selectedHour);
 
+            // Realiza la consulta en Firestore para obtener todos los eventos
             db.collection("evento")
-                    .whereEqualTo("mes", selectedMonth)
-                    .whereEqualTo("dia", selectedDay)
-                    .whereEqualTo("hora", selectedHour)
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
@@ -132,10 +134,36 @@ public class CalendarioEventos extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 List<String> eventNames = new ArrayList<>();
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    // Obtener el nombre del evento y agregarlo a la lista
-                                    String eventName = document.getString("nombre"); // Reemplaza "nombre" con el nombre del campo en tu documento
-                                    eventNames.add(eventName);
+                                    // Obtener la fecha de inicio del evento en formato "dd-MM-yyyy"
+                                    String fechaInicio = document.getString("fechaInicio"); // Reemplaza "fechaInicio" con el nombre del campo en tu documento
+                                    String fechaFin = document.getString("fechaFin");
+                                    String horaInicio = document.getString("horaInicio");
+                                    String horaFin = document.getString("horaFin");
+
+                                    // Dividir la fecha en partes usando el guión "-"
+                                    String[] partesFechaI = fechaInicio.split("-");
+                                    String[] partesFechaF = fechaFin.split("-");
+                                    String[] partesHoraI = horaInicio.split(":");
+                                    String[] partesHoraF = horaFin.split(":");
+
+                                    // Obtener el mes y el día
+                                    String mesEventoI = partesFechaI[1]; // Obtenemos el mes (índice 1 del arreglo)
+                                    String mesEventoF = partesFechaF[1];
+                                    String diaEventoI = partesFechaI[0]; // Obtenemos el día (índice 0 del arreglo)
+                                    String diaEventoF = partesFechaF[0];
+                                    String horaEventoI = partesHoraI[0];
+                                    String horaEventoF = partesHoraF[0];
+
+                                    // Verificar si la fecha coincide con la selección actual
+                                    if ((Integer.parseInt(mesEventoI)-1 < selectedMonth + 1 && Integer.parseInt(mesEventoF)+1 > selectedMonth + 1)
+                                            && (Integer.parseInt(diaEventoI)-1 < selectedDay && Integer.parseInt(diaEventoF)+1 > selectedDay)
+                                            && (Integer.parseInt(horaEventoI)-1 < selectedHour && Integer.parseInt(horaEventoF)+1 > selectedHour)) {
+                                        // Agregar el nombre del evento a la lista
+                                        String eventName = document.getString("nombre"); // Reemplaza "nombre" con el nombre del campo en tu documento
+                                        eventNames.add(eventName);
+                                    }
                                 }
+                                // Llamar a la función para mostrar los eventos
                                 displayEvents(eventNames);
                             } else {
                                 // Manejar errores si la obtención de datos falla
@@ -148,7 +176,6 @@ public class CalendarioEventos extends AppCompatActivity {
             Log.d("CalendarioEventos", "No se han seleccionado Mes, Día y Hora");
         }
     }
-
 
     private void displayEvents(List<String> eventNames) {
         LinearLayout eventLinearLayout = findViewById(R.id.eventLinearLayout);
@@ -184,6 +211,19 @@ public class CalendarioEventos extends AppCompatActivity {
                     // Activar el color de fondo del botón de evento actual
                     eventButton.setSelected(true);
                     lastPressedEventButton = eventButton;
+
+                    // Obtener el nombre del evento seleccionado
+                    String selectedEventName = eventButton.getText().toString();
+
+                    // Crear un Intent para abrir la actividad SeleccionarEvento
+                    Intent intent = new Intent(CalendarioEventos.this, SeleccionarEventos.class);
+
+                    // Agregar datos extras al Intent (nombre del evento)
+                    intent.putExtra("event_name", selectedEventName);
+                    intent.putExtra("user", user);
+
+                    // Iniciar la actividad SeleccionarEvento
+                    startActivity(intent);
                 }
             });
 
