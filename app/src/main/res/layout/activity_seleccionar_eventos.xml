@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/backgroundmain">
+    android:background="@drawable/backgroundmain"
+    tools:context=".SeleccionarEventos">
 
     <TextView
         android:id="@+id/textViewEvento"
@@ -43,33 +44,10 @@
 
         <!-- LinearLayout vertical para colocar los TextView de actividades -->
         <LinearLayout
+            android:id="@+id/linearLayoutEventos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <!-- Ejemplo de TextView para una actividad (puedes duplicarlos según sea necesario) -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/textview_background"
-                android:padding="8dp"
-                android:text="Actividad 1"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/textview_background"
-                android:padding="8dp"
-                android:text="Actividad 2"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
-
-            <!-- Agrega más TextView según sea necesario para todas las actividades -->
-
         </LinearLayout>
     </ScrollView>
 

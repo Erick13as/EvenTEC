@@ -134,11 +134,10 @@ public class Login extends AppCompatActivity {
                     User user = new User(nombre, apellido, apellido2, carnet, contraseña,correo,carrera, sede,descripcion, idTipo);
 
                     if (idTipo.equals("Estudiante")) {
-                        correoEditText.setError("El usuario existe");
-                        correoEditText.requestFocus();
-                        /*Intent intent = new Intent(Login.this, MainEstudiante.class);
-                        intent.putExtra("user", user); // Pass the user object
-                        startActivity(intent);*/
+                        // Abre la pantalla MisEventos y pasa el carnet del usuario como extra
+                        Intent intent = new Intent(Login.this, MisEventos.class);
+                        intent.putExtra("user", user); // Pasa el objeto de usuario
+                        startActivity(intent);
                     } else if (idTipo.equals("Admin")) {
                         Intent intent = new Intent(Login.this, LobbyEstudiantesAdmin.class);
                         intent.putExtra("user", user); // Pass the user object

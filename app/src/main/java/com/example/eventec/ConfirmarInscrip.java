@@ -1,12 +1,12 @@
 package com.example.eventec;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.ImageView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -14,25 +14,40 @@ import com.google.zxing.common.BitMatrix;
 
 public class ConfirmarInscrip extends AppCompatActivity {
 
-    private EditText editText;
-    private Button generateButton;
     private ImageView qrImageView;
+    private Button backToLoginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmar_inscrip);
 
-        editText = findViewById(R.id.editText);
-        generateButton = findViewById(R.id.generateButton);
         qrImageView = findViewById(R.id.qrImageView);
+        backToLoginButton = findViewById(R.id.backToLoginButton);
 
-        generateButton.setOnClickListener(new View.OnClickListener() {
+        // Recibe los datos de Inscrip a través del intent
+        Inscrip inscripcion = (Inscrip) getIntent().getSerializableExtra("inscripcion");
+
+        // Genera el texto a partir de los datos de Inscrip
+        String inscripcionText = "Carnet: " + inscripcion.getCarnet() + "\n" +
+                "Evento: " + inscripcion.getIdEvento();
+
+        // Genera el código QR directamente
+        Bitmap qrCodeBitmap = generateQRCode(inscripcionText);
+
+        if (qrCodeBitmap != null) {
+            // Muestra el código QR en el ImageView
+            qrImageView.setImageBitmap(qrCodeBitmap);
+        }
+
+        // Configura el OnClickListener para el botón
+        backToLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String inputText = editText.getText().toString();
-                Bitmap bitmap = generateQRCode(inputText);
-                qrImageView.setImageBitmap(bitmap);
+                // Abre la pantalla de Login
+                Intent intent = new Intent(ConfirmarInscrip.this, Login.class);
+                startActivity(intent);
+                finish(); // Cierra la actividad actual
             }
         });
     }
@@ -58,3 +73,4 @@ public class ConfirmarInscrip extends AppCompatActivity {
         return null;
     }
 }
+
