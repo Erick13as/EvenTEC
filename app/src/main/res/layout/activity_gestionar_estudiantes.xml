@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrarEstudiantes"
+    android:background="@drawable/backgroundmain"
+    tools:ignore="ExtraText">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_GuardarGestionarEstudiantes"
+        android:layout_width="179dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="676dp"
+        android:background="@drawable/round_button_background"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-medium"
+        android:text="Guardar"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_EliminarGestionarEstudiantes"
+        android:layout_width="179dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="676dp"
+        android:background="@drawable/round_button_background"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-medium"
+        android:text="Eliminar"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="352dp"
+        android:layout_height="614dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto13"
+        app:srcCompat="@android:drawable/screen_background_light" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idNombreEstudiante"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Nombre"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/texto15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.649"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idPrimerApellidoEstudiante"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="536dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Primer apellido"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idSegundoApellidoEstudiante"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="468dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Segundo apellido"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idCarnetEstudiante"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="404dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Carnet"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idCorreoEstudiante"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="272dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Correo"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idSedeEstudiante"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="140dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Sede"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idDescripcionEstudiante"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="21dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Descripción"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto23" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idCarreraEstudiante"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="204dp"
+        android:backgroundTint="#132BFF"
+        android:hint="Carrera"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/idContraseñaEstudiante"
+        android:layout_width="334dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="340dp"
+        android:backgroundTint="#132BFF"
+        android:hint="**********"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/texto14"
+        android:layout_width="331dp"
+        android:layout_height="32dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Nombre:"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto13"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/texto15"
+        android:layout_width="331dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="572dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Primer Apellido:"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.662"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/texto16"
+        android:layout_width="331dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="504dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Segundo Apellido:"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/texto17"
+        android:layout_width="331dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="440dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Carnet:"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/texto18"
+        android:layout_width="331dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="376dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Contraseña:"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/texto19"
+        android:layout_width="331dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="308dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Correo"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/texto20"
+        android:layout_width="331dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="240dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Carrera:"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/texto21"
+        android:layout_width="331dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="172dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Sede:"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/texto23"
+        android:layout_width="331dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="116dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Descripción:"
+        android:textAlignment="center"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.662"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/texto13"
+        android:layout_width="318dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="676dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Gestionar Estudiantes"
+        android:textAlignment="center"
+        android:textColor="#F6F6F6"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
