@@ -29,7 +29,7 @@
         android:id="@+id/questionListView"
         android:layout_width="390dp"
         android:layout_height="671dp"
-        android:background="#B9DAEA"
+        android:background="#009688"
         app:layout_constraintBottom_toTopOf="@+id/postButton"
         app:layout_constraintEnd_toEndOf="parent" />
 
