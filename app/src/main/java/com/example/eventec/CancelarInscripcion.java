@@ -25,6 +25,7 @@ public class CancelarInscripcion extends AppCompatActivity {
     private TextView textViewCantidadEve;
     private User user;
     private Button buttonCancelarIns;
+    private Button buttonVerQR;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +51,23 @@ public class CancelarInscripcion extends AppCompatActivity {
                 eliminarInscripcion(user.getCarnet());
             }
         });
+
+        buttonVerQR = findViewById(R.id.buttonVerQR); // Inicializa el botón
+
+        buttonVerQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtén el nombre del evento
+                String nombreEvento = textViewActividad.getText().toString();
+
+                // Crea un Intent para la actividad Entrada y agrega el nombre del evento como extra
+                Intent intent = new Intent(CancelarInscripcion.this, Entrada.class);
+                intent.putExtra("carnet", user.getCarnet());
+                intent.putExtra("nombreEvento", nombreEvento); // Agrega el nombre del evento como extra
+                startActivity(intent);
+            }
+        });
+
 
         // Recibe el evento enviado desde MisEventos
         Intent intent = getIntent();
