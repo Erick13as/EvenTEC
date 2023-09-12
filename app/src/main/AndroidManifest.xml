@@ -12,6 +12,18 @@
         android:theme="@style/Theme.EvenTEC"
         tools:targetApi="31">
         <activity
+            android:name=".GestionarEstudiantes"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarEventos"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultarActividades"
+            android:exported="false" />
+        <activity
+            android:name=".LobbyEstudiantes"
+            android:exported="false" />
+        <activity
             android:name=".Entrada"
             android:exported="false" />
         <activity
@@ -21,7 +33,7 @@
             android:name=".EditarColaborador"
             android:exported="false" />
         <activity
-            android:name=".BuscarCOlaborador"
+            android:name=".BuscarColaborador"
             android:exported="false" />
         <activity
             android:name=".AsignarColaborador"
