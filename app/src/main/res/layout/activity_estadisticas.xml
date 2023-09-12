@@ -8,7 +8,7 @@
     android:background="@drawable/backgroundmain">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_EnviarPropuesta3"
+        android:id="@+id/btn_GenerarInforme"
         android:layout_width="166dp"
         android:layout_height="59dp"
         android:layout_marginStart="120dp"
@@ -29,7 +29,7 @@
         android:layout_height="425dp"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_EnviarPropuesta3"
+        app:layout_constraintBottom_toTopOf="@+id/btn_GenerarInforme"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/screen_background_light" />
 
@@ -58,12 +58,12 @@
         android:layout_marginTop="368dp"
         android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
+        android:hint="03/08/2023"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="03/08/2023"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idEvaluacionEstadistica"
@@ -73,12 +73,12 @@
         android:layout_marginTop="568dp"
         android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
+        android:hint="1-10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="6/10"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idHoraEstadisticas"

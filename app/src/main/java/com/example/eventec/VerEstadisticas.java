@@ -45,14 +45,16 @@ public class VerEstadisticas extends AppCompatActivity {
                     Toast.makeText(VerEstadisticas.this, "Sin eventos disponibles", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    OpenEstadisticas();
+
+                    OpenEstadisticas(EventoSoli);
                 }
             }
         });
 
     }
-    public void OpenEstadisticas() {
-        Intent intent = new Intent(this, Estadisticas.class);
+    public void OpenEstadisticas(String EventoSoli) {
+        Intent intent = new Intent(VerEstadisticas.this, Estadisticas.class);
+        intent.putExtra("evento", EventoSoli); // Pasa el nombre del evento seleccionado
         startActivity(intent);
     }
     private void obtenerNombresEventos() {

@@ -3,6 +3,7 @@ package com.example.eventec;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -77,6 +78,10 @@ public class Propuesta extends AppCompatActivity {
                         }
                     }
                 });
-        //OpenMainE();
+        OpenComunicacion();
+    }
+    public void OpenComunicacion() {
+        Intent intent = new Intent(this, Comunicacion.class);
+        startActivity(intent);
     }
 }
