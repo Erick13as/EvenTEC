@@ -54,6 +54,7 @@ public class Foro extends AppCompatActivity {
         questionAdapter = new QuestionAdapter(this, questionList);
         questionListView.setAdapter(questionAdapter);
 
+
         postButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +63,7 @@ public class Foro extends AppCompatActivity {
         });
 
         loadQuestions();
+
     }
 
     private void postQuestion() {
@@ -90,6 +92,7 @@ public class Foro extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
                                 questionEditText.setText("");
                                 loadQuestions();
+                                questionListView.smoothScrollToPosition(questionList.size() - 1);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -119,5 +122,6 @@ public class Foro extends AppCompatActivity {
                 // Handle the error
             }
         });
+        
     }
 }
