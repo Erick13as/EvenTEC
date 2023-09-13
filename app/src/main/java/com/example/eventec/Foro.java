@@ -2,6 +2,7 @@ package com.example.eventec;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
         import android.view.View;
@@ -35,6 +36,7 @@ public class Foro extends AppCompatActivity {
     private FirebaseAuth auth;
     private List<Question> questionList;
     private QuestionAdapter questionAdapter;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +66,17 @@ public class Foro extends AppCompatActivity {
 
     private void postQuestion() {
         //********FirebaseUser user = auth.getCurrentUser();
-        String user= "Sofia";
+        //
+        Intent intent = getIntent();
+        //String usuario = (String) intent.getSerializableExtra("user");
+        user = (User) intent.getSerializableExtra("user");
+        Button button = (Button) findViewById(R.id.btn_GenerarInforme);
+        //String user= usuario;
+        //String user= "Sofia";
+
         if (user != null) {
-            String userId = "id1234";//******user.getUid();
-            String userName = "Sofia Vega"; //*******user.getDisplayName();
+            String userId = user.getCarnet();//"id1234"; descomentar para usar sin login
+            String userName = user.getNombre()+" "+user.getApellido();//"Sofia Vega"; descomentar para usar sin login
             String questionText = questionEditText.getText().toString().trim();
 
             if (!questionText.isEmpty()) {
