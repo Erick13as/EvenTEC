@@ -25,6 +25,7 @@ public class CancelarInscripcion extends AppCompatActivity {
     private TextView textViewCantidadEve;
     private User user;
     private Button buttonCancelarIns;
+    private Button buttonVerQR;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,10 +47,30 @@ public class CancelarInscripcion extends AppCompatActivity {
         buttonCancelarIns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Realiza la comparación con la tabla inscripcion en Firestore
+                // Realiza la comparación con la tabla inscripción en Firestore y elimina la inscripción del usuario
                 eliminarInscripcion(user.getCarnet());
+
+                // Incrementa la capacidad del evento en la tabla evento en Firestore
+                incrementarCapacidadEvento();
             }
         });
+
+        buttonVerQR = findViewById(R.id.buttonVerQR); // Inicializa el botón
+
+        buttonVerQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtén el nombre del evento
+                String nombreEvento = textViewActividad.getText().toString();
+
+                // Crea un Intent para la actividad Entrada y agrega el nombre del evento como extra
+                Intent intent = new Intent(CancelarInscripcion.this, Entrada.class);
+                intent.putExtra("carnet", user.getCarnet());
+                intent.putExtra("nombreEvento", nombreEvento); // Agrega el nombre del evento como extra
+                startActivity(intent);
+            }
+        });
+
 
         // Recibe el evento enviado desde MisEventos
         Intent intent = getIntent();
@@ -66,30 +87,26 @@ public class CancelarInscripcion extends AppCompatActivity {
                 // Obtén el nombre del evento
                 String nombreEvento = evento.getNombre();
 
-                // Referencia a la colección de actividades en Firestore
+                // Referencia a la colección de eventos en Firestore
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                CollectionReference actividadesRef = db.collection("actividad");
+                CollectionReference eventosRef = db.collection("evento"); // Asegúrate de que sea la colección correcta
 
-                // Consulta las actividades con el mismo idEvento que el nombre del evento
-                Query query = actividadesRef.whereEqualTo("idEvento", nombreEvento);
+                // Consulta el evento con el mismo nombre
+                Query query = eventosRef.whereEqualTo("nombre", nombreEvento); // Cambia "nombre" por el campo correcto en Firestore
 
                 // Realiza la consulta
                 query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            int sumaCantidad = 0;
-                            for (DocumentSnapshot document : task.getResult()) {
-                                // Suma la cantidad de cada actividad
-                                int cantidadActividad = document.getLong("capacidad").intValue(); // Suponiendo que "cantidad" sea el nombre del campo en Firestore
-                                sumaCantidad += cantidadActividad;
-                            }
+                        if (task.isSuccessful() && task.getResult() != null && !task.getResult().isEmpty()) {
+                            DocumentSnapshot eventDocument = task.getResult().getDocuments().get(0); // Obtén el primer documento
+                            int capacidadEvento = eventDocument.getLong("capacidad").intValue();
 
-                            // Muestra la suma en el textViewCantidadEve
-                            textViewCantidadEve.setText(String.valueOf(sumaCantidad));
+                            // Muestra la capacidad del evento en el textViewCantidadEve
+                            textViewCantidadEve.setText(String.valueOf(capacidadEvento));
                         } else {
-                            // Maneja el error si la consulta falla
-                            // Por ejemplo, puedes mostrar un mensaje de error o dejar el textViewCantidadEve en un valor predeterminado
+                            // Maneja el error si la consulta no encuentra el evento
+                            // Puedes mostrar un mensaje de error o dejar el textViewCantidadEve en un valor predeterminado
                         }
                     }
                 });
@@ -141,6 +158,45 @@ public class CancelarInscripcion extends AppCompatActivity {
             }
         });
     }
+    private void incrementarCapacidadEvento() {
+        String nombreEvento = textViewActividad.getText().toString();
 
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference eventosRef = db.collection("evento");
+
+        // Consulta el evento con el mismo nombre
+        Query query = eventosRef.whereEqualTo("nombre", nombreEvento);
+
+        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful() && task.getResult() != null && !task.getResult().isEmpty()) {
+                    DocumentSnapshot eventDocument = task.getResult().getDocuments().get(0); // Obtén el primer documento
+                    int capacidadEvento = eventDocument.getLong("capacidad").intValue();
+
+                    // Incrementa la capacidad en 1
+                    capacidadEvento++;
+
+                    // Actualiza la capacidad en Firestore
+                    eventosRef.document(eventDocument.getId()).update("capacidad", capacidadEvento)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> updateTask) {
+                                    if (updateTask.isSuccessful()) {
+                                        // Incremento exitoso
+                                        // Puedes mostrar un mensaje de éxito o realizar otras acciones necesarias
+                                    } else {
+                                        // Maneja el error si la actualización falla
+                                        // Puedes mostrar un mensaje de error
+                                    }
+                                }
+                            });
+                } else {
+                    // Maneja el error si la consulta no encuentra el evento
+                    // Puedes mostrar un mensaje de error
+                }
+            }
+        });
+    }
 
 }

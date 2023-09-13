@@ -66,33 +66,30 @@ public class Inscripcion extends AppCompatActivity {
                 // Obtén el nombre del evento
                 String nombreEvento = evento.getNombre();
 
-                // Referencia a la colección de actividades en Firestore
+                // Referencia a la colección de eventos en Firestore
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                CollectionReference actividadesRef = db.collection("actividad");
+                CollectionReference eventosRef = db.collection("evento"); // Cambia "actividad" a "evento"
 
-                // Consulta las actividades con el mismo idEvento que el nombre del evento
-                Query query = actividadesRef.whereEqualTo("idEvento", nombreEvento);
+                // Consulta el evento con el mismo nombre
+                eventosRef.whereEqualTo("nombre", nombreEvento).get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    int capacidadEvento = 0; // Inicializa la capacidad en 0
+                                    for (DocumentSnapshot document : task.getResult()) {
+                                        // Obtiene la capacidad del evento
+                                        capacidadEvento = document.getLong("capacidad").intValue();
+                                    }
 
-                // Realiza la consulta
-                query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            int sumaCantidad = 0;
-                            for (DocumentSnapshot document : task.getResult()) {
-                                // Suma la cantidad de cada actividad
-                                int cantidadActividad = document.getLong("capacidad").intValue(); // Suponiendo que "cantidad" sea el nombre del campo en Firestore
-                                sumaCantidad += cantidadActividad;
+                                    // Muestra la capacidad en el textViewCantidadEve
+                                    textViewCantidadEve.setText(String.valueOf(capacidadEvento));
+                                } else {
+                                    // Maneja el error si la consulta falla
+                                    // Por ejemplo, puedes mostrar un mensaje de error o dejar el textViewCantidadEve en un valor predeterminado
+                                }
                             }
-
-                            // Muestra la suma en el textViewCantidadEve
-                            textViewCantidadEve.setText(String.valueOf(sumaCantidad));
-                        } else {
-                            // Maneja el error si la consulta falla
-                            // Por ejemplo, puedes mostrar un mensaje de error o dejar el textViewCantidadEve en un valor predeterminado
-                        }
-                    }
-                });
+                        });
             }
         }
     }
@@ -102,6 +99,7 @@ public class Inscripcion extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference inscripcionesRef = db.collection("inscripcion");
+        CollectionReference eventosRef = db.collection("evento"); // Agrega referencia a la colección de eventos
 
         Query query = inscripcionesRef.whereEqualTo("carnet", carnetUsuario)
                 .whereEqualTo("idEvento", nombreEvento);
@@ -121,6 +119,41 @@ public class Inscripcion extends AppCompatActivity {
                                             // Actualización exitosa
                                             // Puedes mostrar un mensaje de éxito o realizar otras acciones necesarias
 
+                                            // Resta 1 a la capacidad del evento en la base de datos
+                                            eventosRef.whereEqualTo("nombre", nombreEvento)
+                                                    .get()
+                                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<QuerySnapshot> eventTask) {
+                                                            if (eventTask.isSuccessful()) {
+                                                                for (DocumentSnapshot eventDocument : eventTask.getResult()) {
+                                                                    int capacidadEvento = eventDocument.getLong("capacidad").intValue();
+                                                                    if (capacidadEvento > 0) {
+                                                                        capacidadEvento--; // Resta 1 a la capacidad
+                                                                        // Actualiza la capacidad en la base de datos
+                                                                        eventosRef.document(eventDocument.getId())
+                                                                                .update("capacidad", capacidadEvento)
+                                                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                    @Override
+                                                                                    public void onComplete(@NonNull Task<Void> capacityUpdateTask) {
+                                                                                        if (capacityUpdateTask.isSuccessful()) {
+                                                                                            // Capacidad actualizada con éxito
+                                                                                            // Puedes mostrar un mensaje de éxito o realizar otras acciones necesarias
+                                                                                        } else {
+                                                                                            // Maneja el error si la actualización de la capacidad falla
+                                                                                            // Puedes mostrar un mensaje de error
+                                                                                        }
+                                                                                    }
+                                                                                });
+                                                                    }
+                                                                }
+                                                            } else {
+                                                                // Maneja el error si la consulta de eventos falla
+                                                                // Puedes mostrar un mensaje de error
+                                                            }
+                                                        }
+                                                    });
+
                                             // Crea un objeto Inscrip con los datos
                                             Inscrip inscripcion = document.toObject(Inscrip.class);
 
@@ -129,14 +162,14 @@ public class Inscripcion extends AppCompatActivity {
                                             intent.putExtra("inscripcion", inscripcion);
                                             startActivity(intent);
                                         } else {
-                                            // Maneja el error si la actualización falla
+                                            // Maneja el error si la actualización de la inscripción falla
                                             // Puedes mostrar un mensaje de error
                                         }
                                     }
                                 });
                     }
                 } else {
-                    // Maneja el error si la consulta falla
+                    // Maneja el error si la consulta de inscripciones falla
                     // Puedes mostrar un mensaje de error
                 }
             }

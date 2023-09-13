@@ -149,8 +149,8 @@ public class CalendarioEventos extends AppCompatActivity {
                                     // Obtener el mes y el día
                                     String mesEventoI = partesFechaI[1]; // Obtenemos el mes (índice 1 del arreglo)
                                     String mesEventoF = partesFechaF[1];
-                                    String diaEventoI = partesFechaI[0]; // Obtenemos el día (índice 0 del arreglo)
-                                    String diaEventoF = partesFechaF[0];
+                                    String diaEventoI = partesFechaI[2]; // Obtenemos el día (índice 0 del arreglo)
+                                    String diaEventoF = partesFechaF[2];
                                     String horaEventoI = partesHoraI[0];
                                     String horaEventoF = partesHoraF[0];
 

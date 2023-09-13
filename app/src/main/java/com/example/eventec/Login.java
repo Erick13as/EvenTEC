@@ -135,7 +135,7 @@ public class Login extends AppCompatActivity {
 
                     if (idTipo.equals("Estudiante")) {
                         // Abre la pantalla MisEventos y pasa el carnet del usuario como extra
-                        Intent intent = new Intent(Login.this, CalendarioEventos.class);
+                        Intent intent = new Intent(Login.this, LobbyEstudiantes.class);
                         intent.putExtra("user", user); // Pasa el objeto de usuario
                         startActivity(intent);
                     } else if (idTipo.equals("Admin")) {
