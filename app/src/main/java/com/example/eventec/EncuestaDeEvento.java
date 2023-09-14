@@ -3,6 +3,7 @@ package com.example.eventec;
 import java.io.Serializable;
 
 public class EncuestaDeEvento implements Serializable {
+    private String nombreEvento;
     private String respuesta1;
     private String respuesta2;
     private String respuesta3;
@@ -11,11 +12,20 @@ public class EncuestaDeEvento implements Serializable {
     public EncuestaDeEvento() {
         // Default constructor required for Firebase
     }
-    public EncuestaDeEvento(String pregunta1, String pregunta2, String pregunta3, String pregunta4) {
+    public EncuestaDeEvento(String nombre,String pregunta1, String pregunta2, String pregunta3, String pregunta4) {
+        this.nombreEvento = nombre;
         this.respuesta1 = pregunta1;
         this.respuesta2 = pregunta2;
         this.respuesta3 = pregunta3;
         this.respuesta4 = pregunta4;
+    }
+
+    public String getNombreEvento() {
+        return nombreEvento;
+    }
+
+    public void setNombreEvento(String nombreEvento) {
+        this.nombreEvento = nombreEvento;
     }
 
     public String getPregunta4() {
