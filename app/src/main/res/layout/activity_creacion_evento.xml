@@ -211,7 +211,7 @@
             android:layout_marginTop="12dp"
             android:backgroundTint="#F6F6F6"
             android:hint="Capacidad"
-            android:inputType="textMultiLine"
+            android:inputType="number"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/editTextUbicacion"
