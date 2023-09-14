@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this, ConsultarActividades.class);
+        Intent intent = new Intent(this, AsignarColaborador.class);
         startActivity(intent);
         finish();
     }
