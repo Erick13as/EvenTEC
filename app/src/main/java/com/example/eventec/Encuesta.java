@@ -3,6 +3,7 @@ package com.example.eventec;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -35,9 +36,16 @@ public class Encuesta extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
 
         Button button = findViewById(R.id.btn_EnviarEncuesta);
+        Button buttonSalir = findViewById(R.id.btn_SalirEncuesta);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 uploadDataToFirestore();
+            }
+        });
+
+        buttonSalir.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                openLobbyEstudiantes();
             }
         });
         pregunta1 = findViewById(R.id.idPregunta1);
@@ -45,6 +53,10 @@ public class Encuesta extends AppCompatActivity {
         pregunta3 = findViewById(R.id.idPregunta3);
         pregunta4 = findViewById(R.id.idPregunta4);
 
+    }
+    public void openLobbyEstudiantes() {
+        Intent intent = new Intent(this, LobbyEstudiantes.class);
+        startActivity(intent);
     }
     private void uploadDataToFirestore() {
         String RespuestaPregunta1 = pregunta1.getText().toString();
