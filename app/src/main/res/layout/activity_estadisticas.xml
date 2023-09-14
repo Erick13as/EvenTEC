@@ -7,29 +7,13 @@
     tools:context=".Estadisticas"
     android:background="@drawable/backgroundmain">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_GenerarInforme"
-        android:layout_width="166dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="656dp"
-        android:background="@drawable/round_button_background"
-        android:backgroundTint="@color/white"
-        android:fontFamily="sans-serif-medium"
-        android:text="Generar informe"
-        android:textAlignment="center"
-        android:textColor="@color/purple_700"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="366dp"
         android:layout_height="425dp"
         android:layout_marginEnd="21dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_GenerarInforme"
+        android:layout_marginBottom="95dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/screen_background_light" />
 
@@ -41,14 +25,14 @@
         android:layout_marginTop="268dp"
         android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
+        android:hint="."
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/texto10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:hint="35"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/idDiaEstadisticas"
@@ -58,10 +42,10 @@
         android:layout_marginTop="368dp"
         android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
-        android:hint="03/08/2023"
+        android:hint="."
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,10 +57,10 @@
         android:layout_marginTop="568dp"
         android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
-        android:hint="1-10"
+        android:hint="."
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,12 +72,12 @@
         android:layout_marginTop="468dp"
         android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
+        android:hint="."
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="7:00 pm"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView7"
