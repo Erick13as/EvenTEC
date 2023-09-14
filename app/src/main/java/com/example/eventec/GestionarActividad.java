@@ -67,8 +67,14 @@ public class GestionarActividad extends AppCompatActivity {
         // Obtener datos de eventos y cargar en el spinnerEventos
         obtenerEventosParaSpinner();
 
-        // Llama al método para obtener los datos del primer documento en la colección "actividad"
-        obtenerPrimerDocumentoDeFirestore();
+        // Retrieve the activity name passed from the previous screen
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String actividadNombre = extras.getString("actividad");
+
+            // Use the activity name to query Firestore for the matching activity
+            obtenerActividadPorNombre(actividadNombre);
+        }
 
         // Configura el onClickListener para el botón Guardar
         buttonGuardar.setOnClickListener(new View.OnClickListener() {
@@ -112,8 +118,10 @@ public class GestionarActividad extends AppCompatActivity {
                 });
     }
 
-    private void obtenerPrimerDocumentoDeFirestore() {
-        db.collection("actividad").limit(1).get()
+    private void obtenerActividadPorNombre(String nombreActividad) {
+        db.collection("actividad")
+                .whereEqualTo("descripcion", nombreActividad)
+                .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (DocumentSnapshot document : task.getResult()) {
@@ -130,7 +138,7 @@ public class GestionarActividad extends AppCompatActivity {
                             spinnerHorasI.setSelection(adapter.getPosition(horaInicio));
                             spinnerHorasF.setSelection(adapter.getPosition(horaCierre));
                             spinnerEventos.setSelection(eventosList.indexOf(evento));
-                            textViewActividad.setText(evento);
+                            textViewActividad.setText(descripcion);
                             editTextUbicacion.setText(ubicacion);
                             editTextDescripcion.setText(descripcion);
                             editTextRecursos.setText(recursos);
@@ -142,7 +150,6 @@ public class GestionarActividad extends AppCompatActivity {
                     }
                 });
     }
-
 
     private void actualizarDatosEnFirestore() {
         // Obtén los valores actuales de las vistas
@@ -201,7 +208,6 @@ public class GestionarActividad extends AppCompatActivity {
             // No se encontró el ID de la actividad, muestra un mensaje de error o realiza la acción adecuada
         }
     }
-
 
     public void showDatePickerDialog(View view) {
         final Calendar calendar = Calendar.getInstance();
