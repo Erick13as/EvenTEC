@@ -77,7 +77,7 @@ public class CreacionEvento extends AppCompatActivity {
         spinnerHoraFin.setAdapter(horasAdapter);
 // Crear una lista de fechas hasta el final del año
         List<String> fechasList = new ArrayList<>();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR); // Obtener el año actual
 
