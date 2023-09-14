@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Actividad"
+            android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"

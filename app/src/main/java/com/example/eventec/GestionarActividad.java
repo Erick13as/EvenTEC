@@ -1,6 +1,7 @@
 package com.example.eventec;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -67,8 +68,14 @@ public class GestionarActividad extends AppCompatActivity {
         // Obtener datos de eventos y cargar en el spinnerEventos
         obtenerEventosParaSpinner();
 
-        // Llama al método para obtener los datos del primer documento en la colección "actividad"
-        obtenerPrimerDocumentoDeFirestore();
+        // Retrieve the activity name passed from the previous screen
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String actividadNombre = extras.getString("actividad");
+
+            // Use the activity name to query Firestore for the matching activity
+            obtenerActividadPorNombre(actividadNombre);
+        }
 
         // Configura el onClickListener para el botón Guardar
         buttonGuardar.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +83,8 @@ public class GestionarActividad extends AppCompatActivity {
             public void onClick(View view) {
                 // Llama al método para actualizar los datos en Firestore
                 actualizarDatosEnFirestore();
+                // Abre la pantalla LobbyAsociaciones
+                abrirLobbyAsociaciones();
             }
         });
         buttonEliminar.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +92,8 @@ public class GestionarActividad extends AppCompatActivity {
             public void onClick(View view) {
                 // Llama al método para eliminar la actividad de Firestore
                 eliminarActividadDeFirestore();
+                // Abre la pantalla LobbyAsociaciones
+                abrirLobbyAsociaciones();
             }
         });
     }
@@ -112,8 +123,10 @@ public class GestionarActividad extends AppCompatActivity {
                 });
     }
 
-    private void obtenerPrimerDocumentoDeFirestore() {
-        db.collection("actividad").limit(1).get()
+    private void obtenerActividadPorNombre(String nombreActividad) {
+        db.collection("actividad")
+                .whereEqualTo("descripcion", nombreActividad)
+                .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (DocumentSnapshot document : task.getResult()) {
@@ -130,7 +143,7 @@ public class GestionarActividad extends AppCompatActivity {
                             spinnerHorasI.setSelection(adapter.getPosition(horaInicio));
                             spinnerHorasF.setSelection(adapter.getPosition(horaCierre));
                             spinnerEventos.setSelection(eventosList.indexOf(evento));
-                            textViewActividad.setText(evento);
+                            textViewActividad.setText(descripcion);
                             editTextUbicacion.setText(ubicacion);
                             editTextDescripcion.setText(descripcion);
                             editTextRecursos.setText(recursos);
@@ -143,13 +156,12 @@ public class GestionarActividad extends AppCompatActivity {
                 });
     }
 
-
     private void actualizarDatosEnFirestore() {
         // Obtén los valores actuales de las vistas
         String fecha = editTextFecha.getText().toString();
         String horaInicio = spinnerHorasI.getSelectedItem().toString();
         String horaCierre = spinnerHorasF.getSelectedItem().toString();
-        String idEvento = textViewActividad.getText().toString();
+        String idEvento = spinnerEventos.getSelectedItem().toString();
         String ubicacion = editTextUbicacion.getText().toString();
         String descripcion = editTextDescripcion.getText().toString();
         String recursos = editTextRecursos.getText().toString();
@@ -202,7 +214,6 @@ public class GestionarActividad extends AppCompatActivity {
         }
     }
 
-
     public void showDatePickerDialog(View view) {
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -219,5 +230,9 @@ public class GestionarActividad extends AppCompatActivity {
                 }, year, month, day);
 
         datePickerDialog.show();
+    }
+    private void abrirLobbyAsociaciones() {
+        Intent intent = new Intent(this, LobbyAsociaciones.class);
+        startActivity(intent);
     }
 }

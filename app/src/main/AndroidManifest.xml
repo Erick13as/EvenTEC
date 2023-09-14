@@ -27,7 +27,7 @@
             android:name=".Entrada"
             android:exported="false" />
         <activity
-            android:name=".GestionarEvento"
+            android:name=".CreacionEvento"
             android:exported="false" />
         <activity
             android:name=".EditarColaborador"

@@ -72,7 +72,7 @@ public class Foro extends AppCompatActivity {
         Intent intent = getIntent();
         //String usuario = (String) intent.getSerializableExtra("user");
         user = (User) intent.getSerializableExtra("user");
-        Button button = (Button) findViewById(R.id.btn_GenerarInforme);
+        //Button button = (Button) findViewById(R.id.btn_GenerarInforme);
         //String user= usuario;
         //String user= "Sofia";
 
@@ -122,6 +122,6 @@ public class Foro extends AppCompatActivity {
                 // Handle the error
             }
         });
-        
+
     }
 }

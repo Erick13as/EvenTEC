@@ -40,15 +40,23 @@ public class ConsultarActividades extends AppCompatActivity {
         String ActividadesConsult = spinnerActividades.getSelectedItem().toString();
         obtenerActividades();
         Button button = (Button) findViewById(R.id.btn_GestionarActividad);
-
+        Button btnAgregarColaboradores = findViewById(R.id.btn_AgregarColaboradores);
+        btnAgregarColaboradores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ConsultarActividades.this, RegistrarAsociaciones.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String actividad = spinnerActividades.getSelectedItem().toString();
-                //Condicional para saber si existen actividades disponibles
-                if (actividad.equals("Sin Actividades")){
-                    Toast.makeText(ConsultarActividades.this, "Sin Actividades", Toast.LENGTH_SHORT).show();
-                }
-                else {
+
+                // Condicional para saber si existen actividades disponibles
+                if (actividad.equals("Sin actividades")) {
+                    Toast.makeText(ConsultarActividades.this, "No hay ninguna actividad seleccionada", Toast.LENGTH_SHORT).show();
+                } else {
                     OpenActividades(actividad);
                 }
             }

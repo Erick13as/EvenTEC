@@ -2,6 +2,7 @@ package com.example.eventec;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -76,65 +77,74 @@ public class RegistrarEstudiantes extends AppCompatActivity {
 
         // Get a reference to the "usuario" collection in Firestore
         CollectionReference usersCollection = mFirestore.collection("usuario");
-
-        if (nombre.isEmpty() || apellido.isEmpty() || apellido2.isEmpty() || carnet.isEmpty() || contraseña.isEmpty() || correo.isEmpty() || carrera.isEmpty() || sede.isEmpty() || descripcion.isEmpty()) {
-            Toast.makeText(RegistrarEstudiantes.this, "¡Error: Campos vacíos!", Toast.LENGTH_SHORT).show();
-        } else {
-            // Check if a user with the same email already exists
-            usersCollection.whereEqualTo("correo", correo).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    if (task.isSuccessful()) {
-                        if (!task.getResult().isEmpty()) {
-                            // A user with the same email already exists
-                            Toast.makeText(RegistrarEstudiantes.this, "¡Error: Usuario ya existente!", Toast.LENGTH_SHORT).show();
-                        } else {
-                            // Check if a user with the same carnet already exists
-                            usersCollection.whereEqualTo("carnet", carnet).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        if (!task.getResult().isEmpty()) {
-                                            // A user with the same carnet already exists
-                                            Toast.makeText(RegistrarEstudiantes.this, "¡Error: Carnet ya registrado!", Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            // Create a new User object
-                                            User user = new User(nombre, apellido, apellido2, carnet, contraseña, correo, carrera, sede, descripcion, idTipo);
-
-                                            // Upload the user data to Firestore
-                                            usersCollection.add(user)
-                                                    .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                                                        @Override
-                                                        public void onComplete(@NonNull Task<DocumentReference> task) {
-                                                            if (task.isSuccessful()) {
-                                                                // Data successfully uploaded to Firestore
-                                                                // You can perform any desired actions here
-                                                                // For example, display a success message
-                                                                Toast.makeText(RegistrarEstudiantes.this, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show();
-                                                            } else {
-                                                                // Failed to upload data to Firestore
-                                                                // You can handle the error here
-                                                                Toast.makeText(RegistrarEstudiantes.this, "Registro de usuario fallido", Toast.LENGTH_SHORT).show();
-                                                            }
-                                                        }
-                                                    });
-                                        }
-                                    } else {
-                                        // Handle the error here
-                                        Toast.makeText(RegistrarEstudiantes.this, "Error al verificar el carnet del usuario", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-                        }
-                    } else {
-                        // Handle the error here
-                        Toast.makeText(RegistrarEstudiantes.this, "Error al verificar el correo del usuario", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+        if (!correo.endsWith("@estudiantec.cr")){
+            Toast.makeText(RegistrarEstudiantes.this, "¡Error: Utilice su correo institucional con dominio @estudiantec,cr!", Toast.LENGTH_SHORT).show();
         }
+        else {
+            if (nombre.isEmpty() || apellido.isEmpty() || apellido2.isEmpty() || carnet.isEmpty() || contraseña.isEmpty() || correo.isEmpty() || carrera.isEmpty() || sede.isEmpty() || descripcion.isEmpty()) {
+                Toast.makeText(RegistrarEstudiantes.this, "¡Error: Campos vacíos!", Toast.LENGTH_SHORT).show();
+            } else {
+                // Check if a user with the same email already exists
+                usersCollection.whereEqualTo("correo", correo).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            if (!task.getResult().isEmpty()) {
+                                // A user with the same email already exists
+                                Toast.makeText(RegistrarEstudiantes.this, "¡Error: Usuario ya existente!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                // Check if a user with the same carnet already exists
+                                usersCollection.whereEqualTo("carnet", carnet).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            if (!task.getResult().isEmpty()) {
+                                                // A user with the same carnet already exists
+                                                Toast.makeText(RegistrarEstudiantes.this, "¡Error: Carnet ya registrado!", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                // Create a new User object
+                                                User user = new User(nombre, apellido, apellido2, carnet, contraseña, correo, carrera, sede, descripcion, idTipo);
+
+                                                // Upload the user data to Firestore
+                                                usersCollection.add(user)
+                                                        .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<DocumentReference> task) {
+                                                                if (task.isSuccessful()) {
+                                                                    // Data successfully uploaded to Firestore
+                                                                    // You can perform any desired actions here
+                                                                    // For example, display a success message
+                                                                    Toast.makeText(RegistrarEstudiantes.this, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show();
+                                                                    OpenLogin();
+                                                                } else {
+                                                                    // Failed to upload data to Firestore
+                                                                    // You can handle the error here
+                                                                    Toast.makeText(RegistrarEstudiantes.this, "Registro de usuario fallido", Toast.LENGTH_SHORT).show();
+                                                                }
+                                                            }
+                                                        });
+                                            }
+                                        } else {
+                                            // Handle the error here
+                                            Toast.makeText(RegistrarEstudiantes.this, "Error al verificar el carnet del usuario", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+                        } else {
+                            // Handle the error here
+                            Toast.makeText(RegistrarEstudiantes.this, "Error al verificar el correo del usuario", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }
+
     }
 
-
+    public void OpenLogin() {
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+    }
 
 }
