@@ -9,21 +9,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class ConsultarEventos extends AppCompatActivity {
+public class VerEventoTerminado extends AppCompatActivity {
 
     private FirebaseFirestore mFirestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consultar_eventos);
+        setContentView(R.layout.activity_ver_evento_terminado);
 
         mFirestore = FirebaseFirestore.getInstance();
-        Button btnAgregarColaboradores = findViewById(R.id.btn_GestionarEvento);
+        Button btnAgregarColaboradores = findViewById(R.id.buttonCalificar);
         btnAgregarColaboradores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ConsultarEventos.this, RegistrarAsociaciones.class);
+                Intent intent = new Intent(VerEventoTerminado.this, RegistrarAsociaciones.class);
                 startActivity(intent);
                 finish();
             }

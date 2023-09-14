@@ -26,6 +26,7 @@ public class CancelarInscripcion extends AppCompatActivity {
     private User user;
     private Button buttonCancelarIns;
     private Button buttonVerQR;
+    private Button buttonCalificarEvento;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class CancelarInscripcion extends AppCompatActivity {
         // Inicializa el botón
         buttonCancelarIns = findViewById(R.id.buttonCancelarIns);
 
+
         // Establece un OnClickListener para el botón
         buttonCancelarIns.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +54,18 @@ public class CancelarInscripcion extends AppCompatActivity {
 
                 // Incrementa la capacidad del evento en la tabla evento en Firestore
                 incrementarCapacidadEvento();
+            }
+        });
+
+        buttonCalificarEvento = findViewById(R.id.buttonCalificar);
+        buttonCalificarEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CancelarInscripcion.this, VerEventoTerminado.class);
+                startActivity(intent);
+                finish();
+
+
             }
         });
 
