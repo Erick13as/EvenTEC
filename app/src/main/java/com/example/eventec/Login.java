@@ -93,6 +93,12 @@ public class Login extends AppCompatActivity {
 
 
     private void checkUser(String correo, String contraseña) {
+        if (!correo.endsWith("@estudiantec.cr")) {
+            correoEditText.setError("El correo debe ser de dominio @estudiantec.cr");
+            correoEditText.requestFocus();
+            return;
+        }
+
         Query query = db.collection("usuario");
         if (correo != null && !correo.isEmpty()) {
             query = query.whereEqualTo("correo", correo);
