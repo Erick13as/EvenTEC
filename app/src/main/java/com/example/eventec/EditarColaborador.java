@@ -1,4 +1,5 @@
 package com.example.eventec;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +31,7 @@ public class EditarColaborador extends AppCompatActivity {
     private Spinner spinnerSedeColab;
     private TextInputEditText DescripcionColab;
     private TextInputEditText CarreraColab;
+
     private FirebaseFirestore db;
 
     @Override
@@ -40,8 +42,50 @@ public class EditarColaborador extends AppCompatActivity {
         // Inicializa Firestore
         db = FirebaseFirestore.getInstance();
 
-        Button btnEditar = findViewById(R.id.btn_Editar);
+        // Inicializa los elementos de la interfaz de usuario
+        nombreColab = findViewById(R.id.nombreColab);
+        Apellido1 = findViewById(R.id.Apellido1);
+        Apellido2 = findViewById(R.id.Apellido2);
+        CarnetColab = findViewById(R.id.CarnetColab);
+        CorreoColab = findViewById(R.id.CorreoColab);
+        spinnerSedeColab = findViewById(R.id.spinnerSedeColab);
+        DescripcionColab = findViewById(R.id.DescripcionColab);
+        CarreraColab = findViewById(R.id.CarreraColab);
+        CarnetColab= findViewById(R.id.CarnetColab);
 
+        // Recibe los datos del colaborador desde el Intent
+        Intent intent = getIntent();
+        if (intent != null) {
+            String nombre = intent.getStringExtra("nombre");
+            String correo = intent.getStringExtra("correo");
+            String apellido = intent.getStringExtra("apellido");
+            String apellido2 = intent.getStringExtra("apellido2");
+            String carrera = intent.getStringExtra("carrera");
+            String carnet = intent.getStringExtra("carnet");
+            String descripcion = intent.getStringExtra("descripcion");
+            String sede = intent.getStringExtra("sede");
+
+            // Establece los datos en los elementos de la interfaz de usuario
+            nombreColab.setText(nombre);
+            CorreoColab.setText(correo);
+            CarnetColab.setText(carnet);
+            Apellido1.setText(apellido);
+            Apellido2.setText(apellido2);
+            CarreraColab.setText(carrera);
+            DescripcionColab.setText(descripcion);
+
+            // Configura el Spinner de Sede (puedes ajustar esto según tus necesidades)
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                    R.array.sedes_array, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerSedeColab.setAdapter(adapter);
+
+            int spinnerPosition = adapter.getPosition(sede);
+            spinnerSedeColab.setSelection(spinnerPosition);
+        }
+
+        Button btnEditar = findViewById(R.id.btn_Editar);
+        Button btnCancelar = findViewById(R.id.btn_Cancelar);
         // Configura el evento de clic para el botón "Editar"
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,11 +96,14 @@ public class EditarColaborador extends AppCompatActivity {
                 finish();
             }
         });
-
-        // Inicializa los elementos de la interfaz de usuario y carga los datos del colaborador existente
-        // Puedes agregar código aquí para cargar los datos actuales del colaborador si es necesario
-        // (por ejemplo, cuando el usuario llega a esta actividad para editar un colaborador existente).
-        // Luego, llena los campos de edición con esos datos si es necesario.
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(com.example.eventec.EditarColaborador.this, LobbyColaboradores.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void actualizarDatosColaborador() {
@@ -77,7 +124,7 @@ public class EditarColaborador extends AppCompatActivity {
         }
 
         // Consulta Firestore para encontrar el documento del colaborador por su número de carné
-        db.collection("usuario")
+        db.collection("colaborador")
                 .whereEqualTo("carnet", carnet)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {

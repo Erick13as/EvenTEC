@@ -61,11 +61,15 @@ public class BuscarColaborador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(com.example.eventec.BuscarColaborador.this, EditarColaborador.class);
-                startActivity(intent);
 
-                // Cierra la actividad actual (opcional, si deseas volver atrás)
-                finish();
+                TextView carnetEditText = findViewById(R.id.idCarnetColab);
+                String carnet = carnetEditText.getText().toString();
+
+                if (!carnet.isEmpty()) {
+                    editarColaborador(carnet);
+                } else {
+                    Toast.makeText(BuscarColaborador.this, "Ingrese un carnet válido", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         buscarButton.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +91,7 @@ public class BuscarColaborador extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         // Obtiene una referencia a la colección "usuarios" en Firestore
-        CollectionReference usuariosRef = db.collection("usuario");
+        CollectionReference usuariosRef = db.collection("colaborador");
 
         // Crea una consulta para buscar al usuario por el carnet
         Query query = usuariosRef.whereEqualTo("carnet", carnet)
@@ -127,13 +131,12 @@ public class BuscarColaborador extends AppCompatActivity {
             }
         });
     }
-
-    private void buscarColaborador(String carnet) {
+    private void editarColaborador(String carnet) {
         // Obtiene una referencia a la base de datos Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         // Obtiene una referencia a la colección "usuarios" en Firestore
-        CollectionReference usuariosRef = db.collection("usuario");
+        CollectionReference usuariosRef = db.collection("colaborador");
 
         // Crea una consulta para buscar por carnet e idtipo igual a "colaborador"
         Query query = usuariosRef.whereEqualTo("carnet", carnet)
@@ -152,6 +155,60 @@ public class BuscarColaborador extends AppCompatActivity {
                         String apellido2 = document.getString("apellido2");
                         String carrera = document.getString("carrera");
                         String descripcion = document.getString("descripcion");
+                        String carnet = document.getString("carnet");
+                        String sede = document.getString("sede");
+
+                        // Crea un Intent para iniciar la actividad EditarColaborador
+                        Intent intentEditar = new Intent(BuscarColaborador.this, EditarColaborador.class);
+
+                        // Agrega los datos como extras en el Intent
+                        intentEditar.putExtra("nombre", nombre);
+                        intentEditar.putExtra("carnet", carnet);
+                        intentEditar.putExtra("correo", correo);
+                        intentEditar.putExtra("apellido", apellido);
+                        intentEditar.putExtra("apellido2", apellido2);
+                        intentEditar.putExtra("carrera", carrera);
+                        intentEditar.putExtra("descripcion", descripcion);
+                        intentEditar.putExtra("sede", sede);
+                        startActivity(intentEditar);
+                    }
+
+                    if (resultadosTextView.getText().toString().isEmpty()) {
+                        // Si no se encontraron resultados, muestra un mensaje
+                        resultadosTextView.setText("No se encontraron colaboradores con ese carnet.");
+                    }
+                } else {
+                    // Si ocurre un error, muestra un mensaje de error
+                    Toast.makeText(BuscarColaborador.this, "Error al buscar colaborador", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+    private void buscarColaborador(String carnet) {
+        // Obtiene una referencia a la base de datos Firestore
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Obtiene una referencia a la colección "usuarios" en Firestore
+        CollectionReference usuariosRef = db.collection("colaborador");
+
+        // Crea una consulta para buscar por carnet e idtipo igual a "colaborador"
+        Query query = usuariosRef.whereEqualTo("carnet", carnet)
+                .whereEqualTo("idTipo", "Colaborador");
+
+        // Ejecuta la consulta
+        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    // Procesa los resultados de la consulta
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        String nombre = document.getString("nombre");
+                        String correo = document.getString("correo");
+                        String apellido = document.getString("apellido");
+                        String apellido2 = document.getString("apellido2");
+                        String carrera = document.getString("carrera");
+                        String descripcion = document.getString("descripcion");
+                        String carnet = document.getString("carnet");
                         String sede = document.getString("sede");
                         // Obtén el contenido actual del TextView previo
                         String contenidoPrevio = resultadosTextView.getText().toString();
@@ -165,6 +222,18 @@ public class BuscarColaborador extends AppCompatActivity {
 
                         // Actualiza el contenido del TextView con el nuevo contenido
                         resultadosTextView.setText(nuevoContenido);
+                        // Crea un Intent para iniciar la actividad EditarColaborador
+                        Intent intentEditar = new Intent(BuscarColaborador.this, EditarColaborador.class);
+
+                        // Agrega los datos como extras en el Intent
+                        intentEditar.putExtra("nombre", nombre);
+                        intentEditar.putExtra("carnet", carnet);
+                        intentEditar.putExtra("correo", correo);
+                        intentEditar.putExtra("apellido", apellido);
+                        intentEditar.putExtra("apellido2", apellido2);
+                        intentEditar.putExtra("carrera", carrera);
+                        intentEditar.putExtra("descripcion", descripcion);
+                        intentEditar.putExtra("sede", sede);
                     }
 
                     if (resultadosTextView.getText().toString().isEmpty()) {
