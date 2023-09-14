@@ -12,6 +12,9 @@
         android:theme="@style/Theme.EvenTEC"
         tools:targetApi="31">
         <activity
+            android:name=".CrearActividad"
+            android:exported="false" />
+        <activity
             android:name=".GestionarEstudiantes"
             android:exported="false" />
         <activity
