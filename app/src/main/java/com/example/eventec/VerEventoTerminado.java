@@ -46,7 +46,7 @@ public class VerEventoTerminado extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(VerEventoTerminado.this, RegistrarAsociaciones.class);
+                Intent intent = new Intent(VerEventoTerminado.this, Encuesta.class);
                 intent.putExtra("eventoEncuestar", finalNombreActividad); // Pasa el objeto de usuario
                 startActivity(intent);
                 finish();

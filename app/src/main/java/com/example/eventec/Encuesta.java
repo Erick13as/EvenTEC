@@ -84,6 +84,7 @@ public class Encuesta extends AppCompatActivity {
                             // You can perform any desired actions here
                             // For example, display a success message
                             Toast.makeText(Encuesta.this, "Encuesta registrada exitosamente", Toast.LENGTH_SHORT).show();
+                            openLobbyEstudiantes();
                         } else {
                             // Failed to upload data to Firestore
                             // You can handle the error here
