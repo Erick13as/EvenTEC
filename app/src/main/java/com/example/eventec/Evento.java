@@ -68,4 +68,20 @@ public class Evento implements Serializable {
     // Agrega getters y setters adicionales si es necesario
 }
 
+class EventoCalificar extends Evento implements Serializable {
+    private String capacidad;
+
+    public EventoCalificar(String nombre, String fechaInicio, String horaInicio, String horaFin, String capacidad) {
+        super(nombre, null, null, fechaInicio, null, horaInicio, horaFin, null, null);
+        this.capacidad = capacidad;
+    }
+
+    public String getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(String capacidad) {
+        this.capacidad = capacidad;
+    }
+}
 

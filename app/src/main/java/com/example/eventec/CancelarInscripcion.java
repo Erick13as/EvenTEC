@@ -61,11 +61,20 @@ public class CancelarInscripcion extends AppCompatActivity {
         buttonCalificarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String nombreActividad = textViewActividad.getText().toString();
+                String fechaEvento = textViewEventoFecha.getText().toString();
+                String horaInicio = textViewHoraI.getText().toString();
+                String horaFin = textViewHoraF.getText().toString();
+                String cantidadEventos = textViewCantidadEve.getText().toString();
+
+                // Crea un objeto EventoDatos con los datos
+                Evento eventoDatos = new EventoCalificar(nombreActividad, fechaEvento, horaInicio, horaFin, cantidadEventos);
+
+                // Crea un Intent para la actividad VerEventoTerminado y agrega el objeto EventoDatos como extra
                 Intent intent = new Intent(CancelarInscripcion.this, VerEventoTerminado.class);
+                intent.putExtra("eventoDatos", eventoDatos);
                 startActivity(intent);
                 finish();
-
-
             }
         });
 
