@@ -40,7 +40,15 @@ public class ConsultarActividades extends AppCompatActivity {
         String ActividadesConsult = spinnerActividades.getSelectedItem().toString();
         obtenerActividades();
         Button button = (Button) findViewById(R.id.btn_GestionarActividad);
-
+        Button btnAgregarColaboradores = findViewById(R.id.btn_AgregarColaboradores);
+        btnAgregarColaboradores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ConsultarActividades.this, RegistrarAsociaciones.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String actividad = spinnerActividades.getSelectedItem().toString();
