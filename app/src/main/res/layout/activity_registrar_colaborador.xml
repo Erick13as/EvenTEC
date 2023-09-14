@@ -219,14 +219,14 @@
             android:layout_height="52dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/spinner_background"
+            android:contentDescription="Selecciona la sede del colaborador"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/btn_Guardar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintHorizontal_bias="0.742"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/DescripcionColab"
-            app:layout_constraintVertical_bias="0.339"
-            android:contentDescription="Selecciona la sede del colaborador"/>
+            app:layout_constraintVertical_bias="0.333" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

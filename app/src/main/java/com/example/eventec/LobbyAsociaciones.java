@@ -27,7 +27,7 @@ public class LobbyAsociaciones extends AppCompatActivity {
         btnCreacionEventos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LobbyAsociaciones.this, LobbyAsociaciones.class);
+                Intent intent = new Intent(LobbyAsociaciones.this, CreacionEvento.class);
                 startActivity(intent);
                 finish();
             }
