@@ -28,6 +28,18 @@ public class VerEventoTerminado extends AppCompatActivity {
 
 
         mFirestore = FirebaseFirestore.getInstance();
+        if (getIntent().hasExtra("eventoDatos")) {
+            EventoCalificar eventoDatos = (EventoCalificar) getIntent().getSerializableExtra("eventoDatos");
+
+            // Now you can use the data as needed
+            String nombreActividad = eventoDatos.getNombre();
+            String fechaEvento = eventoDatos.getFechaInicio();
+            String horaInicio = eventoDatos.getHoraInicio();
+            String horaFin = eventoDatos.getHoraFin();
+            String cantidadEventos = eventoDatos.getCapacidad();
+
+            // Do something with the data, e.g., display it in TextViews or perform other actions
+        }
         Button btnAgregarColaboradores = findViewById(R.id.buttonCalificar);
         btnAgregarColaboradores.setOnClickListener(new View.OnClickListener() {
             @Override

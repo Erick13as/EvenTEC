@@ -1,5 +1,6 @@
 package com.example.eventec;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -34,6 +35,7 @@ public class CreacionEvento extends AppCompatActivity {
     private EditText editTextDescripcion;
     private EditText editTextRequisitos;
     private EditText editTextUbicacion;
+    private EditText editTextCapacidad;
     private Button btnGuardar;
 
     private FirebaseFirestore db;
@@ -55,10 +57,11 @@ public class CreacionEvento extends AppCompatActivity {
         editTextRequisitos = findViewById(R.id.editTextRequisitos);
         editTextUbicacion = findViewById(R.id.editTextUbicacion);
         btnGuardar = findViewById(R.id.btn_Guardar);
+        editTextCapacidad= findViewById(R.id.editTextCapacidad);
         // Crear una lista de horas (puedes personalizarla según tus necesidades)
         String[] horasArray = {
-                "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
-                "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"
+                "08:00", "09:00", "10:00", "11:00", "12:00",
+                "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"
         };
 
         // Crear un adaptador para el Spinner
@@ -74,7 +77,7 @@ public class CreacionEvento extends AppCompatActivity {
         spinnerHoraFin.setAdapter(horasAdapter);
 // Crear una lista de fechas hasta el final del año
         List<String> fechasList = new ArrayList<>();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR); // Obtener el año actual
 
@@ -114,18 +117,20 @@ public class CreacionEvento extends AppCompatActivity {
                 String descripcion = editTextDescripcion.getText().toString();
                 String requisitos = editTextRequisitos.getText().toString();
                 String ubicacion = editTextUbicacion.getText().toString();
+                String capacidad = editTextCapacidad.getText().toString();
 
                 // Crear un nuevo documento en la colección "eventos" de Firestore
                 Map<String, Object> evento = new HashMap<>();
-                evento.put("titulo", titulo);
+                evento.put("nombre", titulo);
                 evento.put("horaInicio", horaInicio);
                 evento.put("horaFin", horaFin);
                 evento.put("fechaInicio", fechaInicio);
                 evento.put("fechaFin", fechaFin);
                 evento.put("categoria", categoria);
                 evento.put("descripcion", descripcion);
-                evento.put("requisitos", requisitos);
-                evento.put("ubicacion", ubicacion);
+                evento.put("requisitosEspeciales", requisitos);
+                evento.put("capacidad", capacidad);
+                evento.put("lugar", ubicacion);
 
                 // Agregar el evento a Firestore
                 db.collection("evento")
@@ -140,6 +145,9 @@ public class CreacionEvento extends AppCompatActivity {
                                     // Error al agregar el evento
                                     Toast.makeText(CreacionEvento.this, "Error al crear el evento", Toast.LENGTH_SHORT).show();
                                 }
+                                Intent intent = new Intent(CreacionEvento.this, LobbyAsociaciones.class);
+                                startActivity(intent);
+                                finish();
                             }
                         });
             }
