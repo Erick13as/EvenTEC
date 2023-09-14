@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_AgregarActividad"
+        android:id="@+id/btn_GestionarActividad"
         android:layout_width="166dp"
         android:layout_height="59dp"
         android:layout_marginStart="120dp"
@@ -32,7 +32,7 @@
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
         android:fontFamily="sans-serif-medium"
-        android:text="Agregar Actividad"
+        android:text="Gestionar Actividad"
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"

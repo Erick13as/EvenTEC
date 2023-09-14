@@ -1,9 +1,13 @@
 package com.example.eventec;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,7 +39,26 @@ public class ConsultarActividades extends AppCompatActivity {
         checkActividad = true;
         String ActividadesConsult = spinnerActividades.getSelectedItem().toString();
         obtenerActividades();
+        Button button = (Button) findViewById(R.id.btn_GestionarActividad);
 
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String actividad = spinnerActividades.getSelectedItem().toString();
+                //Condicional para saber si existen actividades disponibles
+                if (actividad.equals("Sin Actividades")){
+                    Toast.makeText(ConsultarActividades.this, "Sin Actividades", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    OpenActividades(actividad);
+                }
+            }
+        });
+
+    }
+    public void OpenActividades(String actividad) {
+        Intent intent = new Intent(ConsultarActividades.this, GestionarActividad.class);
+        intent.putExtra("actividad", actividad);
+        startActivity(intent);
     }
 
     private void obtenerActividades() {
