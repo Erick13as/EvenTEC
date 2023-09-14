@@ -8,6 +8,6 @@
     <string name="choose_time">Elige una hora</string>
 
     <string-array name="Vacio_array">
-        <item>Sin eventos</item>
+        <item>Sin actividades</item>
     </string-array>
 </resources>

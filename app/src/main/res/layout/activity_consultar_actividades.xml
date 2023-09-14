@@ -54,10 +54,9 @@
         android:id="@+id/spinnerlListaActividades"
         android:layout_width="351dp"
         android:layout_height="66dp"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="248dp"
         android:entries="@array/Vacio_array"
-        app:layout_constraintEnd_toStartOf="@+id/parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

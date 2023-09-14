@@ -44,11 +44,11 @@ public class ConsultarActividades extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String actividad = spinnerActividades.getSelectedItem().toString();
-                //Condicional para saber si existen actividades disponibles
-                if (actividad.equals("Sin Actividades")){
-                    Toast.makeText(ConsultarActividades.this, "Sin Actividades", Toast.LENGTH_SHORT).show();
-                }
-                else {
+
+                // Condicional para saber si existen actividades disponibles
+                if (actividad.equals("Sin actividades")) {
+                    Toast.makeText(ConsultarActividades.this, "No hay ninguna actividad seleccionada", Toast.LENGTH_SHORT).show();
+                } else {
                     OpenActividades(actividad);
                 }
             }
