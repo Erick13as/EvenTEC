@@ -26,6 +26,21 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editTextUbicacion"
+            android:layout_width="349dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="1dp"
+            android:backgroundTint="#F6F6F6"
+            android:hint="Ubicación"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTitulo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextTitulo"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCategorias" />
 
         <EditText
             android:id="@+id/editTextTitulo"
@@ -33,7 +48,6 @@
             android:layout_height="53dp"
             android:layout_marginTop="24dp"
             android:backgroundTint="#F6F6F6"
-            android:focusable="false"
             android:hint="Título"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
@@ -204,51 +218,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextDescripcion" />
 
-        <EditText
-            android:id="@+id/editTextUbicacion"
-            android:layout_width="349dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="1dp"
-            android:backgroundTint="#F6F6F6"
-            android:hint="Ubicación"
-            android:inputType="text"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTitulo"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/editTextTitulo"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerCategorias" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_Guardar"
             android:layout_width="207dp"
             android:layout_height="49dp"
-            android:layout_marginStart="108dp"
+            android:layout_marginStart="120dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/round_button_background"
             android:backgroundTint="@color/white"
             android:fontFamily="sans-serif-medium"
-            android:text="Guardar cambios"
+            android:text="Crear evento"
             android:textAlignment="center"
             android:textColor="@color/purple_700"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextRequisitos" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_Eliminar"
-            android:layout_width="207dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/round_button_background"
-            android:backgroundTint="@color/white"
-            android:fontFamily="sans-serif-medium"
-            android:text="Eliminar evento"
-            android:textAlignment="center"
-            android:textColor="@color/purple_700"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/btn_Guardar"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Guardar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
