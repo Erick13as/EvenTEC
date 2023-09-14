@@ -203,21 +203,36 @@
             app:layout_constraintStart_toStartOf="@+id/editTextUbicacion"
             app:layout_constraintTop_toBottomOf="@+id/editTextUbicacion" />
 
+
+        <EditText
+            android:id="@+id/editTextCapacidad"
+            android:layout_width="349dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#F6F6F6"
+            android:hint="Capacidad"
+            android:inputType="textMultiLine"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/editTextUbicacion"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextUbicacion"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDescripcion" />
+
         <EditText
             android:id="@+id/editTextRequisitos"
             android:layout_width="352dp"
             android:layout_height="55dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:backgroundTint="#F6F6F6"
             android:hint="Requisitos especiales"
             android:inputType="textMultiLine"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintHorizontal_bias="0.474"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDescripcion" />
-
+            app:layout_constraintTop_toBottomOf="@+id/editTextCapacidad" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_Guardar"
