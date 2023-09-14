@@ -17,7 +17,8 @@ public class LobbyEstudiantesAdmin extends AppCompatActivity {
         Button buttonInscripcion = (Button) findViewById(R.id.btn_InscripciónEventos);
         Button buttonCalendario = (Button) findViewById(R.id.btn_CalendarioEventos);
         Button buttonGestionar = (Button) findViewById(R.id.btn_GestionarEstudiantes);
-
+        Button buttonAsoc = (Button) findViewById(R.id.btn_Asociaciones);
+        Button buttonColab = (Button) findViewById(R.id.btn_Colaboradores);
         buttonRegistrar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 OpenRegistrar();
@@ -38,6 +39,18 @@ public class LobbyEstudiantesAdmin extends AppCompatActivity {
         buttonGestionar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 OpenGestionar();
+            }
+        });
+        buttonAsoc.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(LobbyEstudiantesAdmin.this, LobbyAsociaciones.class);
+            startActivity(intent);
+            }
+        });
+        buttonColab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            Intent intent = new Intent(LobbyEstudiantesAdmin.this, LobbyColaboradores.class);
+            startActivity(intent);
             }
         });
     }

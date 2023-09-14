@@ -6,8 +6,23 @@
     </string-array>
     <string name="BotonCrear">Crear Cuenta</string>
     <string name="choose_time">Elige una hora</string>
-
+    <string-array name="sedes_array">
+        <item>San José</item>
+        <item>Cartago</item>
+        <item>Alajuela</item>
+        <item>San Carlos</item>
+        <item>Limón</item>
+    </string-array>
     <string-array name="Vacio_array">
         <item>Sin eventos</item>
     </string-array>
+    <string name="title_activity_gestionar_colaboradores">GestionarColaboradores</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
