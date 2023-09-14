@@ -8,7 +8,7 @@
     tools:context=".VerEstadisticas">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_CancelarCreacionEventos"
+        android:id="@+id/btn_AgregarColaboradores"
         android:layout_width="166dp"
         android:layout_height="59dp"
         android:layout_marginTop="536dp"
