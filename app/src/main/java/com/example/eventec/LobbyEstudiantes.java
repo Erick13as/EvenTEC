@@ -18,7 +18,7 @@ public class LobbyEstudiantes extends AppCompatActivity {
         btn_InscripcionEventos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LobbyEstudiantes.this, Inscripcion.class);
+                Intent intent = new Intent(LobbyEstudiantes.this, Eventos.class);
                 startActivity(intent);
 
                 // Cierra la actividad actual (opcional, si deseas volver atrás)
