@@ -59,10 +59,17 @@ public class Eventos extends AppCompatActivity {
                             }
                         }
 
+                        // Verifica si la lista de nombres de eventos está vacía y muestra "Sin eventos" en caso de que lo esté.
+                        if (nombresEventos.isEmpty()) {
+                            nombresEventos.add("Sin eventos");
+                            spinnerEventos.setEnabled(false); // Deshabilita el Spinner si no hay eventos
+                        }
+
                         // Actualiza el adaptador del Spinner
                         ArrayAdapter<String> adapter = new ArrayAdapter<>(Eventos.this, android.R.layout.simple_spinner_item, nombresEventos);
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinnerEventos.setAdapter(adapter);
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
