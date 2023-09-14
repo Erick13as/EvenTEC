@@ -1,6 +1,7 @@
 package com.example.eventec;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -82,6 +83,8 @@ public class GestionarActividad extends AppCompatActivity {
             public void onClick(View view) {
                 // Llama al método para actualizar los datos en Firestore
                 actualizarDatosEnFirestore();
+                // Abre la pantalla LobbyAsociaciones
+                abrirLobbyAsociaciones();
             }
         });
         buttonEliminar.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +92,8 @@ public class GestionarActividad extends AppCompatActivity {
             public void onClick(View view) {
                 // Llama al método para eliminar la actividad de Firestore
                 eliminarActividadDeFirestore();
+                // Abre la pantalla LobbyAsociaciones
+                abrirLobbyAsociaciones();
             }
         });
     }
@@ -156,7 +161,7 @@ public class GestionarActividad extends AppCompatActivity {
         String fecha = editTextFecha.getText().toString();
         String horaInicio = spinnerHorasI.getSelectedItem().toString();
         String horaCierre = spinnerHorasF.getSelectedItem().toString();
-        String idEvento = textViewActividad.getText().toString();
+        String idEvento = spinnerEventos.getSelectedItem().toString();
         String ubicacion = editTextUbicacion.getText().toString();
         String descripcion = editTextDescripcion.getText().toString();
         String recursos = editTextRecursos.getText().toString();
@@ -225,5 +230,9 @@ public class GestionarActividad extends AppCompatActivity {
                 }, year, month, day);
 
         datePickerDialog.show();
+    }
+    private void abrirLobbyAsociaciones() {
+        Intent intent = new Intent(this, LobbyAsociaciones.class);
+        startActivity(intent);
     }
 }

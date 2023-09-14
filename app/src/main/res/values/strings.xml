@@ -14,7 +14,7 @@
         <item>Limón</item>
     </string-array>
     <string-array name="Vacio_array">
-        <item>Sin eventos</item>
+        <item>Sin actividades</item>
     </string-array>
     <string name="title_activity_gestionar_colaboradores">GestionarColaboradores</string>
     <!-- Strings used for fragments for navigation -->
