@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this, LobbyColaboradores.class);
+        Intent intent = new Intent(this, LobbyAsociaciones.class);
         startActivity(intent);
         finish();
     }

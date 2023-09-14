@@ -206,7 +206,6 @@
             android:text="Sede:"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_Guardar"
             app:layout_constraintEnd_toStartOf="@+id/spinnerSedeColab"
             app:layout_constraintHorizontal_bias="0.878"
             app:layout_constraintStart_toStartOf="parent"
