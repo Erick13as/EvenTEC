@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent intent = new Intent(this, LobbyEstudiantesAdmin.class);
+        Intent intent = new Intent(this, CalendarioEventos.class);
         startActivity(intent);
         finish();
     }
