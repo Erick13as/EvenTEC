@@ -69,7 +69,7 @@ public class GestionarEstudiantes extends AppCompatActivity {
         idCarreraEstudiante.setText(user.getCarrera());
         idSedeEstudiante.setText(user.getSede());
         idDescripcionEstudiante.setText(user.getDescripcion());
-        
+
 
 
         Button btnGuardar = findViewById(R.id.btn_GuardarGestionarEstudiantes);

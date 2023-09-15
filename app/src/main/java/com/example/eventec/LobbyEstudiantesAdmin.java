@@ -39,7 +39,7 @@ public class LobbyEstudiantesAdmin extends AppCompatActivity {
     }
 
     public void OpenGestionar() {
-        Intent intent = new Intent(this, GestionarEstudiantes.class);
+        Intent intent = new Intent(this, SeleccionarEstudiante.class);
         startActivity(intent);
     }
 }
