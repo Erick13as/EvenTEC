@@ -200,7 +200,12 @@ public class BuscarColaborador extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
+                    // Elimina el texto anterior de resultadosTextView
+                    resultadosTextView.setText("");
+
                     // Procesa los resultados de la consulta
+                    boolean encontrados = false; // Variable para verificar si se encontraron resultados
+
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String nombre = document.getString("nombre");
                         String correo = document.getString("correo");
@@ -210,33 +215,21 @@ public class BuscarColaborador extends AppCompatActivity {
                         String descripcion = document.getString("descripcion");
                         String carnet = document.getString("carnet");
                         String sede = document.getString("sede");
-                        // Obtén el contenido actual del TextView previo
-                        String contenidoPrevio = resultadosTextView.getText().toString();
 
                         // Concatena los nuevos resultados con el contenido previo
-                        String nuevoContenido = contenidoPrevio + "\n" + "Nombre: " + nombre + apellido + apellido2 +
-                                "\nCorreo: " + correo+
-                                "\nCarrera: " + carrera+
-                                "\nDescripcion: " + descripcion+
-                                "\nSede: " + sede;
+                        String nuevoContenido = resultadosTextView.getText().toString() +
+                                "Nombre: " + nombre + " " + apellido + " " + apellido2 +
+                                "\nCorreo: " + correo +
+                                "\nCarrera: " + carrera +
+                                "\nDescripcion: " + descripcion +
+                                "\nSede: " + sede + "\n\n";
 
                         // Actualiza el contenido del TextView con el nuevo contenido
                         resultadosTextView.setText(nuevoContenido);
-                        // Crea un Intent para iniciar la actividad EditarColaborador
-                        Intent intentEditar = new Intent(BuscarColaborador.this, EditarColaborador.class);
-
-                        // Agrega los datos como extras en el Intent
-                        intentEditar.putExtra("nombre", nombre);
-                        intentEditar.putExtra("carnet", carnet);
-                        intentEditar.putExtra("correo", correo);
-                        intentEditar.putExtra("apellido", apellido);
-                        intentEditar.putExtra("apellido2", apellido2);
-                        intentEditar.putExtra("carrera", carrera);
-                        intentEditar.putExtra("descripcion", descripcion);
-                        intentEditar.putExtra("sede", sede);
+                        encontrados = true; // Se encontraron resultados
                     }
 
-                    if (resultadosTextView.getText().toString().isEmpty()) {
+                    if (!encontrados) {
                         // Si no se encontraron resultados, muestra un mensaje
                         resultadosTextView.setText("No se encontraron colaboradores con ese carnet.");
                     }
@@ -247,4 +240,6 @@ public class BuscarColaborador extends AppCompatActivity {
             }
         });
     }
+
+
 }

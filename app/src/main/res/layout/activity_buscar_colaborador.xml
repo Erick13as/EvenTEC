@@ -12,7 +12,6 @@
         android:id="@+id/btn_Eliminar"
         android:layout_width="152dp"
         android:layout_height="53dp"
-        android:layout_marginStart="36dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -22,7 +21,6 @@
         android:textColor="@color/purple_700"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/btn_Editar"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollCub" />
 
@@ -30,7 +28,6 @@
         android:id="@+id/btn_Editar"
         android:layout_width="152dp"
         android:layout_height="53dp"
-        android:layout_marginStart="220dp"
         android:layout_marginTop="552dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -39,9 +36,8 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/scrollCub"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_Eliminar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -117,7 +113,6 @@
         android:layout_width="152dp"
         android:layout_height="53dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="128dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
         android:fontFamily="sans-serif-medium"
@@ -126,6 +121,7 @@
         android:textColor="@color/purple_700"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idCarnetColab" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

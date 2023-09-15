@@ -71,7 +71,7 @@
             android:layout_marginBottom="224dp"
             android:backgroundTint="#F6F6F6"
             android:hint="Carnet"
-            android:inputType="text"
+            android:inputType="number"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:textColor="#FFFFFF"

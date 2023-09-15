@@ -7,53 +7,6 @@
     tools:context=".LobbyEstudiantesAdmin"
     android:background="@drawable/backgroundmain">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_MisEventos"
-        android:layout_width="258dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/round_button_background"
-        android:backgroundTint="@color/white"
-        android:fontFamily="sans-serif-medium"
-        android:text="Mis Eventos"
-        android:textAlignment="center"
-        android:textColor="@color/purple_700"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texto2" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_InscripciónEventos"
-        android:layout_width="258dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/round_button_background"
-        android:backgroundTint="@color/white"
-        android:fontFamily="sans-serif-medium"
-        android:text="Inscripción de eventos"
-        android:textAlignment="center"
-        android:textColor="@color/purple_700"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_MisEventos" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_CalendarioEventos"
-        android:layout_width="258dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/round_button_background"
-        android:backgroundTint="@color/white"
-        android:fontFamily="sans-serif-medium"
-        android:text="Calendario de Eventos "
-        android:textAlignment="center"
-        android:textColor="@color/purple_700"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_InscripciónEventos" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_GestionarEstudiantes"
@@ -69,7 +22,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_CalendarioEventos" />
+        app:layout_constraintTop_toBottomOf="@+id/texto2" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_Asociaciones"
