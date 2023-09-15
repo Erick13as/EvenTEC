@@ -56,6 +56,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Asociaciones" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_VerEstadisticas2"
+        android:layout_width="258dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/round_button_background"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-medium"
+        android:text="Estadísticas"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Asociaciones" />
+
     <TextView
         android:id="@+id/texto2"
         android:layout_width="336dp"

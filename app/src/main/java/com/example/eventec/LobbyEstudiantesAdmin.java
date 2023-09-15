@@ -18,7 +18,13 @@ public class LobbyEstudiantesAdmin extends AppCompatActivity {
         Button buttonGestionar = (Button) findViewById(R.id.btn_GestionarEstudiantes);
         Button buttonAsoc = (Button) findViewById(R.id.btn_Asociaciones);
         Button buttonColab = (Button) findViewById(R.id.btn_Colaboradores);
+        Button buttonEstadisticas = (Button) findViewById(R.id.btn_VerEstadisticas2);
 
+        buttonEstadisticas.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                OpenEstadisticas();
+            }
+        });
         buttonGestionar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 OpenGestionar();
@@ -40,6 +46,10 @@ public class LobbyEstudiantesAdmin extends AppCompatActivity {
 
     public void OpenGestionar() {
         Intent intent = new Intent(this, SeleccionarEstudiante.class);
+        startActivity(intent);
+    }
+    public void OpenEstadisticas() {
+        Intent intent = new Intent(this, VerEstadisticas.class);
         startActivity(intent);
     }
 }
