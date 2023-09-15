@@ -171,6 +171,49 @@ public class CalendarioEventos extends AppCompatActivity {
                             }
                         }
                     });
+        } else if (selectedMonth != -1 && selectedDay != -1){
+            // Realiza la consulta en Firestore con los filtros adecuados
+            Log.d("CalendarioEventos", "Consulta Firestore: Mes " + selectedMonth + ", Día " + selectedDay + ", Hora " + selectedHour);
+
+            // Realiza la consulta en Firestore para obtener todos los eventos
+            db.collection("evento")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                List<String> eventNames = new ArrayList<>();
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    // Obtener la fecha de inicio del evento en formato "dd-MM-yyyy"
+                                    String fechaInicio = document.getString("fechaInicio"); // Reemplaza "fechaInicio" con el nombre del campo en tu documento
+                                    String fechaFin = document.getString("fechaFin");
+
+                                    // Dividir la fecha en partes usando el guión "-"
+                                    String[] partesFechaI = fechaInicio.split("-");
+                                    String[] partesFechaF = fechaFin.split("-");
+
+                                    // Obtener el mes y el día
+                                    String mesEventoI = partesFechaI[1]; // Obtenemos el mes (índice 1 del arreglo)
+                                    String mesEventoF = partesFechaF[1];
+                                    String diaEventoI = partesFechaI[2]; // Obtenemos el día (índice 0 del arreglo)
+                                    String diaEventoF = partesFechaF[2];
+
+                                    // Verificar si la fecha coincide con la selección actual
+                                    if ((Integer.parseInt(mesEventoI)-1 < selectedMonth + 1 && Integer.parseInt(mesEventoF)+1 > selectedMonth + 1)
+                                            && (Integer.parseInt(diaEventoI)-1 < selectedDay && Integer.parseInt(diaEventoF)+1 > selectedDay)) {
+                                        // Agregar el nombre del evento a la lista
+                                        String eventName = document.getString("nombre"); // Reemplaza "nombre" con el nombre del campo en tu documento
+                                        eventNames.add(eventName);
+                                    }
+                                }
+                                // Llamar a la función para mostrar los eventos
+                                displayEvents(eventNames);
+                            } else {
+                                // Manejar errores si la obtención de datos falla
+                                Log.e("CalendarioEventos", "Error al obtener eventos de Firestore", task.getException());
+                            }
+                        }
+                    });
         } else {
             // Si no se han seleccionado mes, día y hora, puedes mostrar un mensaje o hacer otra acción
             Log.d("CalendarioEventos", "No se han seleccionado Mes, Día y Hora");

@@ -72,10 +72,6 @@ public class Foro extends AppCompatActivity {
         Intent intent = getIntent();
         //String usuario = (String) intent.getSerializableExtra("user");
         user = (User) intent.getSerializableExtra("user");
-        //Button button = (Button) findViewById(R.id.btn_GenerarInforme);
-        //String user= usuario;
-        //String user= "Sofia";
-
         if (user != null) {
             String userId = user.getCarnet();//"id1234"; descomentar para usar sin login
             String userName = user.getNombre()+" "+user.getApellido();//"Sofia Vega"; descomentar para usar sin login

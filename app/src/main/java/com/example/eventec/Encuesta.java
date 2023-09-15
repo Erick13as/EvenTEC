@@ -65,9 +65,11 @@ public class Encuesta extends AppCompatActivity {
         String RespuestaPregunta4 = pregunta4.getText().toString();
 
         String idTipo = "Estudiante";
-
+        Intent intent = getIntent();
+        //String usuario = (String) intent.getSerializableExtra("user");
+        String nombreEvento = (String) intent.getSerializableExtra("eventoEncuestar");
         // Create a new User object
-        EncuestaDeEvento datosEncuesta = new EncuestaDeEvento(RespuestaPregunta1, RespuestaPregunta2, RespuestaPregunta3, RespuestaPregunta4);
+        EncuestaDeEvento datosEncuesta = new EncuestaDeEvento(nombreEvento,RespuestaPregunta1, RespuestaPregunta2, RespuestaPregunta3, RespuestaPregunta4);
 
         // Get a reference to the "usuario" collection in Firestore
         CollectionReference usersCollection = mFirestore.collection("encuesta");
@@ -82,6 +84,7 @@ public class Encuesta extends AppCompatActivity {
                             // You can perform any desired actions here
                             // For example, display a success message
                             Toast.makeText(Encuesta.this, "Encuesta registrada exitosamente", Toast.LENGTH_SHORT).show();
+                            openLobbyEstudiantes();
                         } else {
                             // Failed to upload data to Firestore
                             // You can handle the error here
