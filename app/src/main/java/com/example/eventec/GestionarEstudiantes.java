@@ -39,11 +39,13 @@ public class GestionarEstudiantes extends AppCompatActivity {
     private TextInputEditText idDescripcionEstudiante;
 
     private FirebaseFirestore mFirestore;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gestionar_estudiantes);
+        user = (User) getIntent().getSerializableExtra("user");
 
         mFirestore = FirebaseFirestore.getInstance();
 
@@ -57,31 +59,18 @@ public class GestionarEstudiantes extends AppCompatActivity {
         idSedeEstudiante = findViewById(R.id.idSedeEstudiante);
         idDescripcionEstudiante = findViewById(R.id.idDescripcionEstudiante);
 
-        // Recibe los datos del colaborador desde el Intent
-        Intent intent = getIntent();
-        if (intent != null) {
-            String nombre = intent.getStringExtra("nombre");
-            String apellido = intent.getStringExtra("apellido");
-            String apellido2 = intent.getStringExtra("apellido2");
-            String carnet = intent.getStringExtra("carnet");
-            String contrasena = intent.getStringExtra("contrasena");
-            String correo = intent.getStringExtra("correo");
-            String carrera = intent.getStringExtra("carrera");
-            String sede = intent.getStringExtra("sede");
-            String descripcion = intent.getStringExtra("descripcion");
+        // Rellena los TextInputEditText con los datos de user
+        idNombreEstudiante.setText(user.getNombre());
+        idPrimerApellidoEstudiante.setText(user.getApellido());
+        idSegundoApellidoEstudiante.setText(user.getApellido2());
+        idCarnetEstudiante.setText(user.getCarnet());
+        idCorreoEstudiante.setText(user.getCorreo());
+        idContraseñaEstudiante.setText(user.getContraseña());
+        idCarreraEstudiante.setText(user.getCarrera());
+        idSedeEstudiante.setText(user.getSede());
+        idDescripcionEstudiante.setText(user.getDescripcion());
+        
 
-
-            // Establece los datos en los elementos de la interfaz de usuario
-            idNombreEstudiante.setText(nombre);
-            idPrimerApellidoEstudiante.setText(apellido);
-            idSegundoApellidoEstudiante.setText(apellido2);
-            idCarnetEstudiante.setText(carnet);
-            idCorreoEstudiante.setText(correo);
-            idContraseñaEstudiante.setText(contrasena);
-            idCarreraEstudiante.setText(carrera);
-            idSedeEstudiante.setText(sede);
-            idDescripcionEstudiante.setText(descripcion);
-        }
 
         Button btnGuardar = findViewById(R.id.btn_GuardarGestionarEstudiantes);
         Button btnEliminar = findViewById(R.id.btn_EliminarGestionarEstudiantes);
