@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/backgroundmain">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerHoraInicioEvento"
+        app:layout_constraintTop_toTopOf="@+id/spinnerHoraInicioEvento">
+
+        <Spinner
+            android:id="@+id/spinnerFechaInicioEvento"
+            android:layout_width="136dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/spinner_background"
+            android:prompt="@string/choose_time"
+            app:layout_constraintBottom_toTopOf="@+id/textViewFechaInicio4"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerFechaFinEvento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaInicio2"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Spinner
+            android:id="@+id/spinnerHoraInicioEvento"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="71dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/spinner_background"
+            android:prompt="@string/choose_time"
+            app:layout_constraintBottom_toTopOf="@+id/textViewFechaInicio5"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerHoraFinEvento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaInicio4" />
+
+        <Spinner
+            android:id="@+id/spinnerCategoriaEvento"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="231dp"
+            android:background="@drawable/spinner_background"
+            android:prompt="@string/choose_time"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/spinnerFechaInicioEvento"
+            app:layout_constraintStart_toStartOf="@+id/editTextRequisitosEspecialesEvento"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaInicio5" />
+
+        <Spinner
+            android:id="@+id/spinnerHoraFinEvento"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="46dp"
+            android:layout_marginBottom="104dp"
+            android:background="@drawable/spinner_background"
+            android:prompt="@string/choose_time"
+            app:layout_constraintBottom_toTopOf="@+id/editTextRequisitosEspecialesEvento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/spinnerHoraInicioEvento"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaFin3" />
+
+        <Spinner
+            android:id="@+id/spinnerFechaFinEvento"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="47dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/spinner_background"
+            android:prompt="@string/choose_time"
+            app:layout_constraintBottom_toTopOf="@+id/textViewFechaFin3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/spinnerFechaInicioEvento"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaFin2" />
+
+        <TextView
+            android:id="@+id/textViewFechaInicio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="226dp"
+            android:layout_marginBottom="62dp"
+            android:text="Fecha de Inicio:"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewFechaInicio4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTituloGestionEvento" />
+
+        <TextView
+            android:id="@+id/textViewFechaInicio4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="226dp"
+            android:layout_marginBottom="69dp"
+            android:text="Hora de Inicio:"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewFechaInicio5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaInicio2" />
+
+        <TextView
+            android:id="@+id/textViewFechaInicio5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="226dp"
+            android:layout_marginBottom="5dp"
+            android:text="Categoria:"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/spinnerCategoriaEvento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.591"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaInicio4" />
+
+        <TextView
+            android:id="@+id/textViewFechaFin2"
+            android:layout_width="141dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="237dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="60dp"
+            android:text="Fecha de Fin:"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewFechaFin3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewFechaFin3"
+            android:layout_width="141dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginBottom="150dp"
+            android:text="Hora de Fin:"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextRequisitosEspecialesEvento"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaFin2" />
+
+        <EditText
+            android:id="@+id/editTextTituloGestionEvento"
+            android:layout_width="347dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="29dp"
+            android:layout_marginBottom="158dp"
+            android:hint="Titulo:"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/textViewFechaInicio2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextDescripcionGestionEvento"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="420dp"
+            android:hint="Descripcion:"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/buttonGuardar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextLugarGestionEvento"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="360dp"
+            android:hint="Lugar:"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/buttonGuardar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextRequisitosEspecialesEvento"
+            android:layout_width="359dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="180dp"
+            android:hint="Requisitos especiales:"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.409"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFechaFin3" />
+
+        <Button
+            android:id="@+id/buttonGuardar"
+            android:layout_width="340dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="100dp"
+            android:text="Guardar Cambios"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonEliminar"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:text="Eliminar Evento"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonGuardar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

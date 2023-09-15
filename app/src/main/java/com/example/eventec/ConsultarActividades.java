@@ -40,13 +40,16 @@ public class ConsultarActividades extends AppCompatActivity {
         String ActividadesConsult = spinnerActividades.getSelectedItem().toString();
         obtenerActividades();
         Button button = (Button) findViewById(R.id.btn_GestionarActividad);
-        Button btnAgregarColaboradores = findViewById(R.id.btn_GestionarActividad);
+        Button btnAgregarColaboradores = findViewById(R.id.btn_AgregarColaboradores);
         btnAgregarColaboradores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ConsultarActividades.this, RegistrarAsociaciones.class);
-                startActivity(intent);
-                finish();
+                String actividad = spinnerActividades.getSelectedItem().toString();
+                if (actividad.equals("Sin actividades")) {
+                    Toast.makeText(ConsultarActividades.this, "No hay ninguna actividad seleccionada", Toast.LENGTH_SHORT).show();
+                } else {
+                    OpenActividades2(actividad);
+                }
             }
         });
         button.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +68,11 @@ public class ConsultarActividades extends AppCompatActivity {
     }
     public void OpenActividades(String actividad) {
         Intent intent = new Intent(ConsultarActividades.this, GestionarActividad.class);
+        intent.putExtra("actividad", actividad);
+        startActivity(intent);
+    }
+    public void OpenActividades2(String actividad) {
+        Intent intent = new Intent(ConsultarActividades.this, AsignarColaborador.class);
         intent.putExtra("actividad", actividad);
         startActivity(intent);
     }

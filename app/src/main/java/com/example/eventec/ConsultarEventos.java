@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,18 +36,54 @@ public class ConsultarEventos extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
         spinnerEventos = findViewById(R.id.spinnerlListarEventos);
         nombresEventos = new ArrayList<>();
-        Button btnAgregarColaboradores = findViewById(R.id.btn_GestionarEvento);
+        Button btnGestionarEvento = findViewById(R.id.btn_GestionarEvento);
+
         String ActividadesEventos = spinnerEventos.getSelectedItem().toString();
         obtenerEvento();
-        btnAgregarColaboradores.setOnClickListener(new View.OnClickListener() {
+        btnGestionarEvento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ConsultarEventos.this, RegistrarAsociaciones.class);
+                Intent intent = new Intent(ConsultarEventos.this, GestionarEvento.class);
                 startActivity(intent);
                 finish();
             }
         });
 
+        //Boton Consultar Activdades
+        Button btnConsultarActivades = findViewById(R.id.btn_ConsultarActividades);
+        btnGestionarEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ConsultarEventos.this, ConsultarActividades.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        //Boton Agregar Colaborador
+        Button btnAgregarColaborador = findViewById(R.id.btn_AgregarColaboradores);
+        btnAgregarColaborador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String evento = spinnerEventos.getSelectedItem().toString();
+
+                if (evento.equals("Sin eventos")) {
+                    Toast.makeText(ConsultarEventos.this, "No hay ninguna actividad seleccionada", Toast.LENGTH_SHORT).show();
+                } else {
+                    openAsignarColaborador(evento);
+                }
+
+
+            }
+        });
+
+
+    }
+
+    public void openAsignarColaborador(String evento) {
+        Intent intent = new Intent(ConsultarEventos.this, AsignarColaborador.class);
+        intent.putExtra("evento", evento);
+        startActivity(intent);
     }
 
     private void obtenerEvento() {
