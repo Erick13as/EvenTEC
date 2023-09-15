@@ -145,7 +145,7 @@ public class CreacionEvento extends AppCompatActivity {
                                     // Error al agregar el evento
                                     Toast.makeText(CreacionEvento.this, "Error al crear el evento", Toast.LENGTH_SHORT).show();
                                 }
-                                Intent intent = new Intent(CreacionEvento.this, LobbyAsociaciones.class);
+                                Intent intent = new Intent(CreacionEvento.this, RedesSociales.class);
                                 startActivity(intent);
                                 finish();
                             }

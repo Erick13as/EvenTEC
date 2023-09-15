@@ -21,6 +21,9 @@
             android:name=".GestionarEstudiantes"
             android:exported="false" />
         <activity
+            android:name=".RedesSociales"
+            android:exported="false" />
+        <activity
             android:name=".GestionarEvento"
             android:exported="false" />
         <activity
