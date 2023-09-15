@@ -110,6 +110,7 @@ public class SeleccionarEventos extends AppCompatActivity {
                             if (task.getResult().isEmpty()) {
                                 // No existe una inscripción con los mismos valores, puedes agregarla
                                 agregarInscripcion();
+                                Toast.makeText(SeleccionarEventos.this, "Evento agregado a eventos de interés", Toast.LENGTH_SHORT).show();
                             } else {
                                 // Ya existe una inscripción con los mismos valores, muestra un mensaje
                                 Toast.makeText(SeleccionarEventos.this, "Evento ya agregado a eventos de interés", Toast.LENGTH_SHORT).show();
@@ -137,9 +138,10 @@ public class SeleccionarEventos extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(SeleccionarEventos.this, CalendarioEventos.class);
+                            Intent intent = new Intent(SeleccionarEventos.this, LobbyEstudiantes.class);
                             intent.putExtra("user", user); // Agrega el objeto User como extra
                             startActivity(intent);
+                            finish(); // Cierra la actividad actual
                         } else {
                             // Manejar errores al agregar la inscripción
                         }

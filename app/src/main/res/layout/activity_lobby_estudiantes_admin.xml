@@ -8,18 +8,18 @@
     android:background="@drawable/backgroundmain">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_RegistrarEstudiante"
+        android:id="@+id/btn_MisEventos"
         android:layout_width="258dp"
         android:layout_height="63dp"
-        android:layout_marginStart="76dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
         android:fontFamily="sans-serif-medium"
-        android:text="Registrar estudiante"
+        android:text="Mis Eventos"
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texto2" />
 
@@ -27,7 +27,6 @@
         android:id="@+id/btn_InscripciónEventos"
         android:layout_width="258dp"
         android:layout_height="63dp"
-        android:layout_marginStart="76dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -36,14 +35,14 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_RegistrarEstudiante" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_MisEventos" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_CalendarioEventos"
         android:layout_width="258dp"
         android:layout_height="63dp"
-        android:layout_marginStart="76dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -52,6 +51,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_InscripciónEventos" />
 
@@ -59,7 +59,6 @@
         android:id="@+id/btn_GestionarEstudiantes"
         android:layout_width="258dp"
         android:layout_height="63dp"
-        android:layout_marginStart="76dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -68,6 +67,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_CalendarioEventos" />
 
@@ -75,7 +75,6 @@
         android:id="@+id/btn_Asociaciones"
         android:layout_width="258dp"
         android:layout_height="63dp"
-        android:layout_marginStart="76dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -84,6 +83,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_GestionarEstudiantes" />
 
@@ -91,7 +91,6 @@
         android:id="@+id/btn_Colaboradores"
         android:layout_width="258dp"
         android:layout_height="63dp"
-        android:layout_marginStart="76dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -100,6 +99,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Asociaciones" />
 
@@ -107,7 +107,7 @@
         android:id="@+id/texto2"
         android:layout_width="336dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="37dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-medium"
         android:text="Administrativo"
         android:textAlignment="center"
@@ -116,7 +116,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.059" />
@@ -125,9 +124,9 @@
         android:id="@+id/imageView2"
         android:layout_width="143dp"
         android:layout_height="111dp"
-        android:layout_marginEnd="132dp"
         android:layout_marginBottom="588dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

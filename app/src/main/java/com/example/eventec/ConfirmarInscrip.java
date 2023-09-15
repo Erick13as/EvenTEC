@@ -16,12 +16,14 @@ public class ConfirmarInscrip extends AppCompatActivity {
 
     private ImageView qrImageView;
     private Button backToLoginButton;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmar_inscrip);
 
+        user = (User) getIntent().getSerializableExtra("user");
         qrImageView = findViewById(R.id.qrImageView);
         backToLoginButton = findViewById(R.id.backToLoginButton);
 
@@ -45,7 +47,8 @@ public class ConfirmarInscrip extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Abre la pantalla de Login
-                Intent intent = new Intent(ConfirmarInscrip.this, Login.class);
+                Intent intent = new Intent(ConfirmarInscrip.this, LobbyEstudiantes.class);
+                intent.putExtra("user", user); // Pass the user object
                 startActivity(intent);
                 finish(); // Cierra la actividad actual
             }

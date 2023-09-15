@@ -22,8 +22,7 @@ public class LobbyColaboradores extends AppCompatActivity {
                 Intent intent = new Intent(LobbyColaboradores.this, RegistrarColaborador.class);
                 startActivity(intent);
 
-                // Cierra la actividad actual (opcional, si deseas volver atrás)
-                finish();
+
             }
         });
         btn_GestionarColaboradores.setOnClickListener(new View.OnClickListener() {
@@ -32,8 +31,7 @@ public class LobbyColaboradores extends AppCompatActivity {
                 Intent intent = new Intent(LobbyColaboradores.this, BuscarColaborador.class);
                 startActivity(intent);
 
-                // Cierra la actividad actual (opcional, si deseas volver atrás)
-                finish();
+
             }
         });
     }

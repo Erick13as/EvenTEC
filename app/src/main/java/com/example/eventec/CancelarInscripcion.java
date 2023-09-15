@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -88,6 +90,7 @@ public class CancelarInscripcion extends AppCompatActivity {
 
                 // Crea un Intent para la actividad Entrada y agrega el nombre del evento como extra
                 Intent intent = new Intent(CancelarInscripcion.this, Entrada.class);
+                intent.putExtra("user", user); // Pass the user object
                 intent.putExtra("carnet", user.getCarnet());
                 intent.putExtra("nombreEvento", nombreEvento); // Agrega el nombre del evento como extra
                 startActivity(intent);
@@ -164,8 +167,10 @@ public class CancelarInscripcion extends AppCompatActivity {
                                             // Crea un objeto Inscrip con los datos (opcional si necesitas los datos antes de eliminar)
 
                                             // Abre la pantalla de inicio de sesión (Login)
-                                            Intent loginIntent = new Intent(CancelarInscripcion.this, Login.class);
-                                            startActivity(loginIntent);
+                                            Intent lobbyIntent = new Intent(CancelarInscripcion.this, LobbyEstudiantes.class);
+                                            lobbyIntent.putExtra("user", user); // Pass the user object
+                                            startActivity(lobbyIntent);
+                                            Toast.makeText(CancelarInscripcion.this, "Inscripción eliminada", Toast.LENGTH_SHORT).show();
                                             finish(); // Cierra la actividad actual si es necesario
                                         } else {
                                             // Maneja el error si la eliminación falla

@@ -22,7 +22,6 @@ public class LobbyAsociaciones extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LobbyAsociaciones.this, RegistrarAsociaciones.class);
                 startActivity(intent);
-                finish();
             }
         });
         btnCreacionEventos.setOnClickListener(new View.OnClickListener() {
@@ -30,7 +29,6 @@ public class LobbyAsociaciones extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LobbyAsociaciones.this, CreacionEvento.class);
                 startActivity(intent);
-                finish();
             }
         });
         btnCreacionActividad.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +36,6 @@ public class LobbyAsociaciones extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LobbyAsociaciones.this, CrearActividad.class);
                 startActivity(intent);
-                finish();
             }
         });
         btnConsultarEventos.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +43,6 @@ public class LobbyAsociaciones extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LobbyAsociaciones.this, ConsultarEventos.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

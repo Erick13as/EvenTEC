@@ -8,26 +8,28 @@ import android.view.View;
 import android.widget.Button;
 
 public class LobbyEstudiantesAdmin extends AppCompatActivity {
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby_estudiantes_admin);
-        Button buttonRegistrar = (Button) findViewById(R.id.btn_RegistrarEstudiante);
+        user = (User) getIntent().getSerializableExtra("user");
+        Button buttonMisEventos = (Button) findViewById(R.id.btn_MisEventos);
         Button buttonInscripcion = (Button) findViewById(R.id.btn_InscripciónEventos);
         Button buttonCalendario = (Button) findViewById(R.id.btn_CalendarioEventos);
         Button buttonGestionar = (Button) findViewById(R.id.btn_GestionarEstudiantes);
         Button buttonAsoc = (Button) findViewById(R.id.btn_Asociaciones);
         Button buttonColab = (Button) findViewById(R.id.btn_Colaboradores);
-        buttonRegistrar.setOnClickListener(new View.OnClickListener() {
+        buttonMisEventos.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                OpenRegistrar();
+                OpenEventos();
             }
         });
 
         buttonInscripcion.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                OpenInscripcion();
+                OpenMisEventos();
             }
         });
         buttonCalendario.setOnClickListener(new View.OnClickListener() {
@@ -54,16 +56,19 @@ public class LobbyEstudiantesAdmin extends AppCompatActivity {
             }
         });
     }
-    public void OpenRegistrar() {
-        Intent intent = new Intent(this, RegistrarEstudiantes.class);
+    public void OpenMisEventos() {
+        Intent intent = new Intent(this, MisEventos.class);
+        intent.putExtra("user", user); // Pass the user object
         startActivity(intent);
     }
-    public void OpenInscripcion() {
-        Intent intent = new Intent(this, Inscripcion.class);
+    public void OpenEventos() {
+        Intent intent = new Intent(this, Eventos.class);
+        intent.putExtra("user", user); // Pass the user object
         startActivity(intent);
     }
     public void OpenCalendario() {
         Intent intent = new Intent(this, CalendarioEventos.class);
+        intent.putExtra("user", user); // Pass the user object
         startActivity(intent);
     }
     public void OpenGestionar() {

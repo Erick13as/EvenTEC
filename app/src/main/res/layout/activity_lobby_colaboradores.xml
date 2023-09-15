@@ -11,7 +11,6 @@
         android:id="@+id/btn_RegistrarColaborador"
         android:layout_width="258dp"
         android:layout_height="63dp"
-        android:layout_marginStart="76dp"
         android:layout_marginTop="312dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -20,6 +19,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +27,6 @@
         android:id="@+id/btn_GestionarColaboradores"
         android:layout_width="258dp"
         android:layout_height="63dp"
-        android:layout_marginStart="76dp"
         android:layout_marginTop="396dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -36,6 +35,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,6 @@
         android:id="@+id/texto2"
         android:layout_width="336dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="37dp"
         android:fontFamily="sans-serif-medium"
         android:text="Colaboradores"
         android:textAlignment="center"
@@ -53,7 +52,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.297" />
@@ -62,10 +60,10 @@
         android:id="@+id/imageView2"
         android:layout_width="143dp"
         android:layout_height="111dp"
-        android:layout_marginEnd="132dp"
         android:layout_marginBottom="584dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

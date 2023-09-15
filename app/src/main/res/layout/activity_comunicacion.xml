@@ -11,7 +11,6 @@
         android:id="@+id/btn_Foro"
         android:layout_width="185dp"
         android:layout_height="60dp"
-        android:layout_marginStart="112dp"
         android:layout_marginTop="320dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -20,6 +19,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +27,6 @@
         android:id="@+id/btn_FormularioPropuestas"
         android:layout_width="185dp"
         android:layout_height="60dp"
-        android:layout_marginStart="112dp"
         android:layout_marginTop="408dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -36,6 +35,23 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_Volver"
+        android:layout_width="185dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="496dp"
+        android:background="@drawable/round_button_background"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-medium"
+        android:text="Volver"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,17 +59,16 @@
         android:id="@+id/imageView"
         android:layout_width="143dp"
         android:layout_height="111dp"
-        android:layout_marginEnd="134dp"
         android:layout_marginBottom="580dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/texto"
         android:layout_width="336dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="37dp"
         android:fontFamily="sans-serif-medium"
         android:text="Comunicación"
         android:textAlignment="center"
@@ -62,7 +77,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.302" />

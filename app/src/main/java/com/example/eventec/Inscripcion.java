@@ -160,6 +160,7 @@ public class Inscripcion extends AppCompatActivity {
                                             // Abre la pantalla ConfirmarInscrip y envía los datos
                                             Intent intent = new Intent(Inscripcion.this, ConfirmarInscrip.class);
                                             intent.putExtra("inscripcion", inscripcion);
+                                            intent.putExtra("user", user); // Pass the user object
                                             startActivity(intent);
                                         } else {
                                             // Maneja el error si la actualización de la inscripción falla
