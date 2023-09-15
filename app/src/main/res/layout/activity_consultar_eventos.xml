@@ -11,7 +11,6 @@
         android:id="@+id/btn_AgregarColaboradores"
         android:layout_width="166dp"
         android:layout_height="59dp"
-        android:layout_marginStart="124dp"
         android:layout_marginTop="620dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -20,6 +19,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +27,6 @@
         android:id="@+id/btn_ConsultarActividades"
         android:layout_width="166dp"
         android:layout_height="59dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="536dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -36,6 +35,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,7 +43,6 @@
         android:id="@+id/btn_GestionarEvento"
         android:layout_width="166dp"
         android:layout_height="59dp"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="456dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -52,6 +51,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,10 +59,10 @@
         android:id="@+id/imageView9"
         android:layout_width="355dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginBottom="415dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtListarEventos"
         app:srcCompat="@android:drawable/screen_background_light" />
 
@@ -70,9 +70,9 @@
         android:id="@+id/spinnerlListarEventos"
         android:layout_width="351dp"
         android:layout_height="66dp"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="248dp"
         android:entries="@array/Vacio_array"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,7 +81,6 @@
         android:layout_width="393dp"
         android:layout_height="0dp"
         android:layout_marginTop="171dp"
-        android:layout_marginEnd="37dp"
         android:layout_marginBottom="23dp"
         android:fontFamily="sans-serif-medium"
         android:text="Listar Eventos:"
@@ -91,7 +90,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.253" />
@@ -100,7 +98,6 @@
         android:id="@+id/txtConsultarEventos"
         android:layout_width="336dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="37dp"
         android:fontFamily="sans-serif-medium"
         android:text="Consultar Eventos"
         android:textAlignment="center"
@@ -109,7 +106,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.076" />
