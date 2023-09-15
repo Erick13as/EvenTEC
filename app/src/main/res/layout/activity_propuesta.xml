@@ -11,27 +11,26 @@
         android:id="@+id/imageView5"
         android:layout_width="371dp"
         android:layout_height="376dp"
-        android:layout_marginEnd="21dp"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_EnviarPropuesta"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/screen_background_light" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="114dp"
         android:layout_height="91dp"
-        android:layout_marginEnd="148dp"
         android:layout_marginBottom="612dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/logo" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_EnviarPropuesta"
         android:layout_width="139dp"
         android:layout_height="59dp"
-        android:layout_marginStart="124dp"
         android:layout_marginTop="620dp"
         android:background="@drawable/round_button_background"
         android:backgroundTint="@color/white"
@@ -40,6 +39,7 @@
         android:textAlignment="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,7 +47,6 @@
         android:id="@+id/texto3"
         android:layout_width="336dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="37dp"
         android:fontFamily="sans-serif-medium"
         android:text="Nueva propuesta"
         android:textAlignment="center"
@@ -56,7 +55,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.205" />
@@ -65,14 +63,11 @@
         android:id="@+id/idTematica"
         android:layout_width="334dp"
         android:layout_height="52dp"
-        android:layout_marginStart="38dp"
         android:layout_marginTop="224dp"
-        android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
         android:hint="Temática"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,14 +75,11 @@
         android:id="@+id/idObjetivo"
         android:layout_width="334dp"
         android:layout_height="52dp"
-        android:layout_marginStart="38dp"
         android:layout_marginTop="292dp"
-        android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
         android:hint="Objetivo"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,14 +87,11 @@
         android:id="@+id/idActividades"
         android:layout_width="334dp"
         android:layout_height="52dp"
-        android:layout_marginStart="38dp"
         android:layout_marginTop="364dp"
-        android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
         android:hint="Actividades a realizar"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,14 +99,11 @@
         android:id="@+id/idFechaPropuesta"
         android:layout_width="334dp"
         android:layout_height="52dp"
-        android:layout_marginStart="38dp"
         android:layout_marginTop="432dp"
-        android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
         android:hint="Fecha sugerida"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,14 +111,11 @@
         android:id="@+id/idCantidadPropuesta"
         android:layout_width="334dp"
         android:layout_height="52dp"
-        android:layout_marginStart="38dp"
         android:layout_marginTop="500dp"
-        android:layout_marginEnd="39dp"
         android:backgroundTint="#132BFF"
         android:hint="Cantidad de participantes"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

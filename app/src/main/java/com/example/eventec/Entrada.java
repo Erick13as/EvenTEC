@@ -18,11 +18,13 @@ public class Entrada extends AppCompatActivity {
     private ImageView qrImageView;
     private Button backToLoginButton;
     private TextView textViewInscripcionE; // Agrega la importación de TextView
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entrada);
+        user = (User) getIntent().getSerializableExtra("user");
 
         qrImageView = findViewById(R.id.qrImageView);
         backToLoginButton = findViewById(R.id.backToLoginButton);
@@ -52,7 +54,8 @@ public class Entrada extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Abre la pantalla de Login
-                Intent intent = new Intent(Entrada.this, Login.class);
+                Intent intent = new Intent(Entrada.this, LobbyEstudiantes.class);
+                intent.putExtra("user", user); // Pass the user object
                 startActivity(intent);
                 finish(); // Cierra la actividad actual
             }

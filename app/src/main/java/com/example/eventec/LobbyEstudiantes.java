@@ -24,8 +24,7 @@ public class LobbyEstudiantes extends AppCompatActivity {
                 intent.putExtra("user", user); // Pass the user object
                 startActivity(intent);
 
-                // Cierra la actividad actual (opcional, si deseas volver atrás)
-                finish();
+
             }
         });
         Button btn_CalendarioDeEventos2 = findViewById(R.id.btn_CalendarioDeEventos2);
@@ -35,9 +34,6 @@ public class LobbyEstudiantes extends AppCompatActivity {
                 Intent intent = new Intent(LobbyEstudiantes.this, CalendarioEventos.class);
                 intent.putExtra("user", user); // Pass the user object
                 startActivity(intent);
-
-                // Cierra la actividad actual (opcional, si deseas volver atrás)
-                finish();
             }
         });
         Button btn_MisEventos = findViewById(R.id.btn_MisEventos);
@@ -47,9 +43,15 @@ public class LobbyEstudiantes extends AppCompatActivity {
                 Intent intent = new Intent(LobbyEstudiantes.this, Eventos.class);
                 intent.putExtra("user", user); // Pass the user object
                 startActivity(intent);
-
-                // Cierra la actividad actual (opcional, si deseas volver atrás)
-                finish();
+            }
+        });
+        Button btn_Comunicaciones = findViewById(R.id.btn_Comunicaciones);
+        btn_Comunicaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LobbyEstudiantes.this, Comunicacion.class);
+                intent.putExtra("user", user); // Pass the user object
+                startActivity(intent);
             }
         });
     }
