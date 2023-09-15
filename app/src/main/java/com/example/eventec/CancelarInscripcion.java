@@ -75,6 +75,7 @@ public class CancelarInscripcion extends AppCompatActivity {
                 // Crea un Intent para la actividad VerEventoTerminado y agrega el objeto EventoDatos como extra
                 Intent intent = new Intent(CancelarInscripcion.this, VerEventoTerminado.class);
                 intent.putExtra("eventoDatos", eventoDatos);
+                intent.putExtra("user", user); // Agrega el objeto User como extra
                 startActivity(intent);
                 finish();
             }

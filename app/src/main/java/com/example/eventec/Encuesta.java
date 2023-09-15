@@ -27,12 +27,14 @@ public class Encuesta extends AppCompatActivity {
     private TextInputEditText pregunta2;
     private TextInputEditText pregunta3;
     private TextInputEditText pregunta4;
+    private User user;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encuesta);
+        user = (User) getIntent().getSerializableExtra("user");
         mFirestore = FirebaseFirestore.getInstance();
 
         Button button = findViewById(R.id.btn_EnviarEncuesta);
@@ -56,6 +58,7 @@ public class Encuesta extends AppCompatActivity {
     }
     public void openLobbyEstudiantes() {
         Intent intent = new Intent(this, LobbyEstudiantes.class);
+        intent.putExtra("user", user); // Pass the user object
         startActivity(intent);
     }
     private void uploadDataToFirestore() {
