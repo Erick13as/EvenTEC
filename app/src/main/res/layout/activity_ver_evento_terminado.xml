@@ -14,7 +14,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="52dp"
         android:layout_marginEnd="52dp"
-        android:layout_marginBottom="144dp"
+        android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.35"
@@ -37,7 +37,7 @@
         android:id="@+id/textViewActividad2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="360dp"
         android:text="Calificacion"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
@@ -45,42 +45,6 @@
         app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/LinearLayout1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="186dp"
-        android:layout_marginBottom="304dp"
-        android:background="@drawable/textview_background"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/spinnerVerEventoTerminado"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textViewCantidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Sede:"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/textViewSedeEvento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Cartago"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/LinearLayout2"
@@ -91,7 +55,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LinearLayout1">
+        app:layout_constraintTop_toBottomOf="@+id/textViewActividad">
 
         <TextView
             android:id="@+id/textViewFecha"
@@ -200,10 +164,9 @@
         android:id="@+id/spinnerVerEventoTerminado"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="163dp"
+        android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textViewActividad2"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/LinearLayout1" />
+        app:layout_constraintStart_toStartOf="@+id/imageView18" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
