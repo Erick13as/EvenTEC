@@ -91,6 +91,7 @@ public class GestionarEstudiantes extends AppCompatActivity {
             public void onClick(View view) {
                 // Llama al método para crear una nueva actividad en Firestore
                 actualizarDatosEstudiante();
+                abrirLobbyEstudiantes();
 
             }
         });
@@ -104,6 +105,7 @@ public class GestionarEstudiantes extends AppCompatActivity {
 
                 // Llama al método para crear una nueva actividad en Firestore
                 eliminarEstudiante(carnet);
+                abrirLobbyEstudiantes();
 
             }
         });
@@ -223,6 +225,11 @@ public class GestionarEstudiantes extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void abrirLobbyEstudiantes() {
+        Intent intent = new Intent(this, LobbyEstudiantesAdmin.class);
+        startActivity(intent);
     }
 
 

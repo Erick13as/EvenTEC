@@ -73,8 +73,8 @@
 
         <Spinner
             android:id="@+id/spinnerFechaFinEvento"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_width="125dp"
+            android:layout_height="53dp"
             android:layout_marginEnd="47dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/spinner_background"
@@ -177,28 +177,28 @@
             android:id="@+id/editTextDescripcionGestionEvento"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="420dp"
+            android:layout_marginBottom="456dp"
             android:hint="Descripcion:"
             android:inputType="text"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/buttonGuardar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/editTextLugarGestionEvento"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="360dp"
+            android:layout_marginBottom="392dp"
             android:hint="Lugar:"
             android:inputType="text"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/buttonGuardar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintHorizontal_bias="0.573"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText

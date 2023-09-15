@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        Intent intent = new Intent(this, GestionarEstudiantes.class);
+        Intent intent = new Intent(this, GestionarEvento.class);
 
 
 
