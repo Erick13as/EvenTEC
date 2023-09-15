@@ -49,17 +49,6 @@ public class ConsultarEventos extends AppCompatActivity {
             }
         });
 
-        //Boton Consultar Activdades
-        Button btnConsultarActivades = findViewById(R.id.btn_ConsultarActividades);
-        btnGestionarEvento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ConsultarEventos.this, ConsultarActividades.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         //Boton Agregar Colaborador
         Button btnAgregarColaborador = findViewById(R.id.btn_AgregarColaboradores);
         btnAgregarColaborador.setOnClickListener(new View.OnClickListener() {

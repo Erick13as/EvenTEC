@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -179,8 +181,7 @@ public class GestionarActividad extends AppCompatActivity {
                     @Override
                     public void onComplete(Task<Void> task) {
                         if (task.isSuccessful()) {
-                            // Datos actualizados correctamente
-                            // Puedes mostrar un mensaje de éxito o realizar otra acción
+                            Toast.makeText(GestionarActividad.this, "Actividad modificada", Toast.LENGTH_SHORT).show();
                         } else {
                             // Error al actualizar los datos
                             // Maneja el error según tus necesidades
@@ -201,8 +202,7 @@ public class GestionarActividad extends AppCompatActivity {
                         @Override
                         public void onComplete(Task<Void> task) {
                             if (task.isSuccessful()) {
-                                // La actividad se eliminó correctamente
-                                // Puedes mostrar un mensaje de éxito o realizar otra acción
+                                Toast.makeText(GestionarActividad.this, "Actividad eliminada", Toast.LENGTH_SHORT).show();
                             } else {
                                 // Error al eliminar la actividad
                                 // Maneja el error según tus necesidades

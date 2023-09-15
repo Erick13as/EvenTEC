@@ -98,7 +98,7 @@
         android:layout_marginBottom="404dp"
         android:backgroundTint="#132BFF"
         android:hint="Carnet"
-        android:inputType="text"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.727"

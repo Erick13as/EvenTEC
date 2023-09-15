@@ -17,6 +17,7 @@ public class LobbyAsociaciones extends AppCompatActivity {
         Button btnCreacionEventos = findViewById(R.id.btn_CreacionEventos);
         Button btnConsultarEventos = findViewById(R.id.btn_ConsultarEventos);
         Button btnCreacionActividad = findViewById(R.id.btn_CreacionActividad);
+        Button btnConsultarActividad = findViewById(R.id.btn_ConsultarActividades);
         btnRegistrarAsociacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +43,13 @@ public class LobbyAsociaciones extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LobbyAsociaciones.this, ConsultarEventos.class);
+                startActivity(intent);
+            }
+        });
+        btnConsultarActividad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LobbyAsociaciones.this, ConsultarActividades.class);
                 startActivity(intent);
             }
         });

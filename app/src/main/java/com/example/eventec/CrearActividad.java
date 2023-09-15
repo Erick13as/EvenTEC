@@ -10,6 +10,8 @@ package com.example.eventec;
         import android.widget.Spinner;
         import android.widget.TextView;
         import android.widget.Button;
+        import android.widget.Toast;
+
         import androidx.appcompat.app.AppCompatActivity;
         import com.google.android.gms.tasks.OnCompleteListener;
         import com.google.android.gms.tasks.Task;
@@ -122,6 +124,7 @@ public class CrearActividad extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Datos de la actividad creados correctamente
                             // Puedes mostrar un mensaje de éxito o realizar otra acción
+                            Toast.makeText(CrearActividad.this, "Actividad creada exitosamente", Toast.LENGTH_SHORT).show();
                             abrirLobbyAsociaciones();
                         } else {
                             // Error al crear la actividad
